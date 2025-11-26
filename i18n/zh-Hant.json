@@ -30,6 +30,8 @@
     "invisibleItems-discoverMore": "回覆一覽下方的「發現更多」",
     "invisibleItems-subscribeTweets": "偶爾在推文右上方出現的「購買」",
     "invisibleItems-subscribeProfile": "個人資料頁面的「訂閱」按鈕",
+    "timeline-discoverMore": "回覆一覽下方的「發現更多」",
+    "timeline-discoverMore-invisible": "隱藏",
     "customCSS-settingTitle": "自訂 CSS",
     "customCSS-save": "儲存自訂 CSS",
     "settingColors-settingTitle": "顏色設定",
@@ -62,5 +64,6 @@
     "import-settingTitle": "匯入",
     "import-importAppend": "匯入並追加",
     "import-importReplace": "匯入並取代",
-    "import-select-explain": "若選擇「追加」，只匯入新項目。若選擇「取代」，會先刪除所有設定後，再匯入完整的設定，而無匯入資料的設定則會設為預設值。"
+    "import-select-explain": "若選擇「追加」，只匯入新項目。若選擇「取代」，會先刪除所有設定後，再匯入完整的設定，而無匯入資料的設定則會設為預設值。",
+    "common-hide": "隱藏"
 }

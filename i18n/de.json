@@ -32,5 +32,8 @@
     "sidebarButton-settingTitle": "Einstellungen der linken Seitenleiste",
     "sidebarButton-setting-narrowBetweenButtons": "Reduzieren Sie die Breite zwischen den Schaltflächen (nur wenn diese breit sind)",
     "sidebarButton-setting-sidebarNoneScrollbar": "Bildlaufleiste der Seitenleiste ausblenden",
-    "rightSidebar-settingTitle": "Einstellungen der rechten Seitenleiste"
+    "rightSidebar-settingTitle": "Einstellungen der rechten Seitenleiste",
+    "timeline-discoverMore-invisible": "Verbergen",
+    "twitterIcon-invisible": "Ausblenden",
+    "common-hide": "Verbergen"
 }

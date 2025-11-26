@@ -37,5 +37,6 @@
     "export-settingTitle": "Dışa Aktar",
     "export-exportButton": "Dışa Aktarma Ayarları",
     "export-exportButtonCopy": "Dışa aktarılan ayarları kopyala",
-    "import-settingTitle": "İçe Aktar"
+    "import-settingTitle": "İçe Aktar",
+    "common-hide": "Gizle"
 }
