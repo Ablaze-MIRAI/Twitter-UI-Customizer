@@ -54,6 +54,7 @@
     "bottomTweetButtons-setting-noModal": "ブロックボタンなどの確認画面を表示しない",
     "bottomTweetButtons-setting-noNumber": "ツイート拡大表示時のボタン横の数字を非表示にする",
     "bottomTweetButtons-setting-likeToFavo": "「いいね」ボタンのアイコンと色を黄色の星に変更する",
+    "bottomTweetButtons-setting-hideOnTimeline": "タイムライン上ではツイート下ボタンを表示しない",
     "bottomTweetButtons-setting-showLinkCardInfo": "リンクカードにリンク先の情報を表示する",
     "bottomTweetButtons-setting-placeEngagementsLink": "エンゲージメントへのリンクを置く",
     "bottomTweetButtons-setting-placeEngagementsLink-likes": "いいねしたユーザー一覧を開く",
@@ -232,6 +233,7 @@
     "composetweet-settingTitle": "ツイート投稿画面の表示",
     "composetweet-hideDraft": "下書きボタンを非表示にする",
     "composetweet-remainOpened": "ツイート投稿画面を投稿後に自動で再表示する",
+    "composetweet-copyHashtag": "ツイート時にハッシュタグを自動でコピーする",
 
     "dmPage-setting-dm": "ダイレクトメッセージ",
     "dmPage-settingTitle": "ダイレクトメッセージの設定",

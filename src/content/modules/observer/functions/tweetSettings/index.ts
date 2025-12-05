@@ -4,11 +4,13 @@ import { tweetTopButtons } from "./tweetTopButtons";
 import { placeEngagementsLink } from "./placeEngagementsLink";
 import { showLinkCardInfo } from "./showLinkCardInfo";
 import { render } from "solid-js/web";
-import { EmptyButtonHTML, TweetUnderButtonsHTML, placeCopiedURLMessage, tweetButtonData, willClickRT } from "./buttonHTML";
+import { EmptyButtonHTML, TweetUnderButtonsHTML, tweetButtonData, willClickRT } from "./buttonHTML";
 import { ButtonUnderTweetSelectors, TweetUnderButtonsData } from "./_data";
 import { ProcessedClass } from "@shared/sharedData";
 import { fontSizeClass } from "@modules/utils/fontSize";
 import { formatTimeText, getAbsolutelyTime, isRelativeTime } from "@content/modules/utils/dateAndTime";
+import { placeToastMessage } from "@content/modules/utils/toastMessage";
+import { TUICI18N } from "@content/modules/i18n";
 
 let buttonUnderTweetRunning = false;
 
@@ -41,7 +43,7 @@ const _data = {
                     .addEventListener("click", (e) => {
                         e.stopImmediatePropagation();
                         navigator.clipboard.writeText(elem.href.replace(/(twitter\.com|x\.com)/, TweetUnderButtonsData.copyURL[getPref("tweetDisplaySetting.linkShareCopyURL").replace("Share", "")]));
-                        placeCopiedURLMessage();
+                        placeToastMessage(TUICI18N.get("bottomTweetButtons-urlCopy-layer"));
                         document.querySelector<HTMLDivElement>(`#layers > div+div > div > div > div > div+div > div > div`).click();
                     });
             }, 100);
@@ -163,45 +165,50 @@ export function tweetSettings() {
                         showLinkCardInfo(articleInfo);
 
                         // ツイート下ボタンの並び替え
-                        let lastButton: HTMLElement | null = null;
-                        for (const i of getPref("visibleButtons")) {
-                            let processingButton: HTMLElement | null = null;
-                            if (i in underTweetButtons) {
-                                processingButton = underTweetButtons[i];
-                                processingButton.classList.add("TUIC_UnderTweetButton");
-                                showElement(processingButton);
-                            } else if (i in tweetButtonData) {
-                                render(TweetUnderButtonsHTML(i, articleInfo), buttonBarBase);
-                                processingButton = Array.from(buttonBarBase.children).at(-1) as HTMLElement;
-                            }
-                            // Twitterのボタンと同化させるためにClassとかごにょごにょしてる
-                            if (processingButton) {
-                                if (underTweetButtons["reply-button"].querySelector(`[data-testid="app-text-transition-container"]`) && processingButton.querySelector(`[data-testid="app-text-transition-container"]`) == null) {
-                                    render(EmptyButtonHTML, processingButton.querySelector("svg").closest(`:is([role="button"],[role="link"]) > div`));
+                        if(articleInfo.option.isBigArticle || !getPref("tweetDisplaySetting.option.hideOnTimeline")){
+                            let lastButton: HTMLElement | null = null;
+                            for (const i of getPref("visibleButtons")) {
+                                let processingButton: HTMLElement | null = null;
+                                if (i in underTweetButtons) {
+                                    processingButton = underTweetButtons[i];
+                                    processingButton.classList.add("TUIC_UnderTweetButton");
+                                    showElement(processingButton);
+                                } else if (i in tweetButtonData) {
+                                    render(TweetUnderButtonsHTML(i, articleInfo), buttonBarBase);
+                                    processingButton = Array.from(buttonBarBase.children).at(-1) as HTMLElement;
                                 }
-                                processingButton.classList.remove("r-1rq6c10", "r-1b7u577", "r-1wron08", "r-ogg1b9", "r-uzdrn4", "r-1l8l4mf");
-                                processingButton.classList.add(fontSizeClass("r-12zb1j4", "r-1kb76zh", "r-1kb76zh", "r-19einr3", "r-zso239"));
-                                lastButton = processingButton;
-                                buttonBarBase.appendChild(processingButton);
+                                // Twitterのボタンと同化させるためにClassとかごにょごにょしてる
+                                if (processingButton) {
+                                    if (underTweetButtons["reply-button"].querySelector(`[data-testid="app-text-transition-container"]`) && processingButton.querySelector(`[data-testid="app-text-transition-container"]`) == null) {
+                                        render(EmptyButtonHTML, processingButton.querySelector("svg").closest(`:is([role="button"],[role="link"]) > div`));
+                                    }
+                                    processingButton.classList.remove("r-1rq6c10", "r-1b7u577", "r-1wron08", "r-ogg1b9", "r-uzdrn4", "r-1l8l4mf");
+                                    processingButton.classList.add(fontSizeClass("r-12zb1j4", "r-1kb76zh", "r-1kb76zh", "r-19einr3", "r-zso239"));
+                                    lastButton = processingButton;
+                                    buttonBarBase.appendChild(processingButton);
+                                }
                             }
-                        }
-                        // 最後のボタンだけ特殊処理
-                        if (lastButton) {
-                            const lastButtonSpace = lastButton.querySelector(".TUIC_UnderTweetButtonSpace");
-                            if (lastButtonSpace != null && lastButtonSpace.children[0].children[0].childElementCount == 0) {
-                                lastButtonSpace.remove();
-                                lastButton.classList.add(fontSizeClass("r-12zb1j4", "r-1kb76zh", "r-1kb76zh", "r-19einr3", "r-zso239"));
+                            // 最後のボタンだけ特殊処理
+                            if (lastButton) {
+                                const lastButtonSpace = lastButton.querySelector(".TUIC_UnderTweetButtonSpace");
+                                if (lastButtonSpace != null && lastButtonSpace.children[0].children[0].childElementCount == 0) {
+                                    lastButtonSpace.remove();
+                                    lastButton.classList.add(fontSizeClass("r-12zb1j4", "r-1kb76zh", "r-1kb76zh", "r-19einr3", "r-zso239"));
+                                }
+                                lastButton.classList.add("r-1rq6c10", "r-1b7u577");
+                                buttonBarBase.style.minHeight = "";
+                                buttonBarBase.style.height = "";
+                            } else {
+                                buttonBarBase.style.minHeight = "0";
+                                buttonBarBase.style.height = "0";
                             }
-                            lastButton.classList.add("r-1rq6c10", "r-1b7u577");
-                            buttonBarBase.style.minHeight = "";
-                            buttonBarBase.style.height = "";
-                        } else {
-                            buttonBarBase.style.minHeight = "0";
-                            buttonBarBase.style.height = "0";
                         }
 
                         for (const i of _data.all) {
-                            if (!getPref("visibleButtons").includes(i) && i in underTweetButtons) {
+                            if (
+                                (!articleInfo.option.isBigArticle && getPref("tweetDisplaySetting.option.hideOnTimeline")) || 
+                                (!getPref("visibleButtons").includes(i) && i in underTweetButtons)
+                            ) {
                                 hideElement(underTweetButtons[i]);
                             }
                         }

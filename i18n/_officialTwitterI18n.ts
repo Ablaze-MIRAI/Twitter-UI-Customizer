@@ -45,6 +45,7 @@ export const TUICI18ns: Record<TUICI18nKey, TranslateKey> = {
     "sidebarButtons-jobs": "b007440a",
     "sidebarButtons-spaces": "b55d8a78",
     "sidebarButtons-grok": "h5860a68",
+    "sidebarButtons-chat": "h5e38204",
     "sidebarButton-moreMenuItems-monetization": "d299431c",
     "sidebarButton-moreMenuItems-creatorStudio": "bb07870e",
     "sidebarButton-moreMenuItems-professionalTool": "ec1ed0cc",

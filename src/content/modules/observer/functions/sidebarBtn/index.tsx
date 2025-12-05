@@ -36,6 +36,7 @@ export const SidebarButtonSelectors = {
     jobs: '[href="/jobs"],#TUICSidebar_jobs',
     spaces: "#TUICSidebar_spaces",
     grok: '[href="/i/grok"]',
+    chat: "#TUICSidebar_chat",
 };
 
 const _data: Record<string, {
@@ -242,6 +243,16 @@ const _data: Record<string, {
             buttonClickInMoreMenu(`[href="/i/spaces/start"]`);
         },
         url: "/i/spaces/start/",
+    },
+    chat: {
+        html: () => {
+            return createSidebarButton("chat", () => <path d={SIDEBAR_BUTTON_ICON.chat.unselected}></path>);
+        },
+        onclick: (e: Event) => {
+            e?.preventDefault?.();
+            buttonClickInMoreMenu(`[href="/i/chat"]`);
+        },
+        url: "/i/chat",
     },
 };
 

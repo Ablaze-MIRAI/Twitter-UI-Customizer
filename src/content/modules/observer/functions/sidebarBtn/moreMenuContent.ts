@@ -22,6 +22,7 @@ const _data = {
         spaces: `[data-testid="Dropdown"] [href="/i/spaces/start"]`,
         followerRequests: `[data-testid="Dropdown"] [href="/follower_requests"]`,
         verifiedOrgsSignup: `[data-testid="Dropdown"] [href="/i/verified-orgs-signup"]`,
+        chat: `[data-testid="Dropdown"] [href="/i/chat"]`,
     },
     type: {
         bookmarks: "menuitem",
@@ -39,6 +40,7 @@ const _data = {
         spaces: "menuitem",
         followerRequests: "menuitem",
         verifiedOrgsSignup: "menuitem",
+        chat: "menuitem",
     },
 };
 
