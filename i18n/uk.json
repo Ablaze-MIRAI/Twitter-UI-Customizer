@@ -34,6 +34,7 @@
     "bottomTweetButtons-setting-linkCopyURL-fxTwitter": "fxtwitter.com",
     "sidebarButton-setting-narrowBetweenButtons": "Зменшити відстань між кнопками, коли вони стають ширшими.",
     "sidebarButton-setting-sidebarNoneScrollbar": "Приховати смугу прокрутки на бічній панелі",
+    "rightSidebar-osusumeUser": "\"За ким слідкувати\" на таймлайну",
     "invisibleItems-settingTitle": "Скрити налаштування",
     "invisibleItems-twitterProPromotionBtn": "Кнопка реклами Twitter Pro",
     "invisibleItems-discoverMore": "\"Дізнатися більше\" у списку відповідей на твіти",
@@ -86,5 +87,6 @@
     "import-settingTitle": "Імпорт",
     "import-importAppend": "Імпортувати та додати налаштування",
     "import-importReplace": "Імпортувати та замінити налаштування",
-    "import-select-explain": "У випадку додавання імпортуються лише ті елементи, що містяться у джерелі імпорту. У випадку заміни всі налаштування буде повернуто до значень за замовчуванням, після чого буде виконано додавання."
+    "import-select-explain": "У випадку додавання імпортуються лише ті елементи, що містяться у джерелі імпорту. У випадку заміни всі налаштування буде повернуто до значень за замовчуванням, після чого буде виконано додавання.",
+    "common-hide": "Приховати"
 }
