@@ -89,9 +89,9 @@ export default defineConfig(({ command, mode }) => {
             transformer: "lightningcss",
             lightningcss: {
                 targets: browserslistToTargets([
-                    "chrome 111",
-                    "firefox 115",
-                    //"safari 16.2",
+                    "chrome 111", //color-mix()
+                    "firefox 121", //:has()
+                    //"safari 16.2", //color-mix()
                 ]),
                 // https://lightningcss.dev/transpilation.html#feature-flags
                 nonStandard: {

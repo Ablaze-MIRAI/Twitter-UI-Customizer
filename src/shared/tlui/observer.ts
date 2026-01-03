@@ -1,4 +1,4 @@
-import { waitForElement } from "@modules/utils/controlElements";
+import { backgroundColorClass } from "@modules/utils/color";
 
 /**
  * TLUI のオブザーバーを開始します。
@@ -6,7 +6,10 @@ import { waitForElement } from "@modules/utils/controlElements";
 export function startTluiObserver() {
     async function changedTheme() {
         document.documentElement.style.setProperty("--tlui-dialog-background", document.body.style.backgroundColor);
-        document.documentElement.style.setProperty("--tlui-dialog-text", getComputedStyle((await waitForElement("span"))[0]).color);
+        document.documentElement.style.setProperty("--tlui-dialog-text", backgroundColorClass<string>(
+            "rgb(231, 233, 234)", "rgb(247, 249, 249)", "rgb(15, 20, 25)",
+            //"r-1nao33i", "r-vlxjld", "r-18jsvk2"
+        ));
     }
 
     new MutationObserver(changedTheme).observe(document.body, { attributes: true, attributeFilter: ["style"] });
