@@ -1,4 +1,4 @@
-import { type UserConfig, defineConfig } from "vite";
+import { type UserConfig, defineConfig, normalizePath } from "vite";
 
 import path from "node:path";
 import * as fs from "node:fs/promises";
@@ -36,7 +36,6 @@ export default defineConfig(({ command, mode }) => {
             outDir,
             emptyOutDir: false,
             sourcemap: true,
-            // outDir,
             target: "es2023",
             assetsInlineLimit: 0,
             reportCompressedSize: false,
@@ -52,14 +51,14 @@ export default defineConfig(({ command, mode }) => {
                     dynamicImportInCjs: true,
                     format: "es",
                     entryFileNames: "[name].js",
-                    manualChunks(id) {
-                        if (id.includes("node_modules")) {
-                            const arr_module_name = id.toString().split("node_modules/")[1].split("/");
+                    manualChunks(id, meta) {
+                        if (id.includes("node_modules") && meta.getModuleInfo(id)?.isIncluded !== false) {
+                            const arr_module_name = id.split("node_modules/")[1].split("/");
                             if (arr_module_name[0] === ".pnpm") {
-                                return arr_module_name[1].toString();
+                                return arr_module_name[1];
                             }
-                            return arr_module_name[0].toString();
-                        };
+                            return arr_module_name[0];
+                        }
                         if (id.includes("i18n")) {
                             return "i18n";
                         }
@@ -88,9 +87,9 @@ export default defineConfig(({ command, mode }) => {
             transformer: "lightningcss",
             lightningcss: {
                 targets: browserslistToTargets([
-                    "chrome 111",
-                    "firefox 115",
-                    //"safari 16.2",
+                    "chrome 111", //color-mix()
+                    "firefox 121", //:has()
+                    //"safari 16.2", //color-mix()
                 ]),
                 // https://lightningcss.dev/transpilation.html#feature-flags
                 nonStandard: {
@@ -108,23 +107,18 @@ export default defineConfig(({ command, mode }) => {
             {
                 name: "copyResources",
                 enforce: "post",
-                options(options) {
-                    // this.addWatch;
-                    // console.log("watch");
-                    // console.log(options.watch);
-                    // if (options.watch) {
-                    //     options.watch.include = r("_locales/**");
-                    // }
-                    // console.log(options.watch);
+                buildStart() {
+                    this.addWatchFile(normalizePath(r("_locales")));
+                    this.addWatchFile(normalizePath(r("i18n")));
+                    this.addWatchFile(normalizePath(r("public")));
+                    this.addWatchFile(normalizePath(r("third-party")));
                 },
-                async buildStart(options) {
+                async renderStart(options) {
                     await Promise.all([
                         changeManifest(mode),
                         //fs.copyFile(rl("src/inject.js"), rl("dist/inject.js")),
                         //fs.copyFile(rl("src/safemode.html"), rl("dist/safemode.html")),
-                        //fs.cp(rl("src/content/styles"), rl("dist/styles"), { recursive: true }),
                         fs.cp(rl("_locales"), rl("dist/_locales"), { recursive: true }),
-                        //fs.cp(rl("icon"), rl("dist/icon"), { recursive: true }),
                     ]);
                     console.log("\x1b[32m✓\x1b[0m Copied injection scripts.");
                 },

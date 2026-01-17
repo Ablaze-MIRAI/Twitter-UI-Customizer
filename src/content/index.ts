@@ -55,7 +55,7 @@ import { waitForElement } from "@modules/utils/controlElements";
         if (getPref("XToTwitter.PwaManifest")) {
             chrome.runtime.sendMessage({
                 type: "enableReplaceTwitterManifest",
-                lang: document.querySelector("html").getAttribute("lang"),
+                lang: document.documentElement.getAttribute("lang"),
             });
         } else {
             chrome.runtime.sendMessage({

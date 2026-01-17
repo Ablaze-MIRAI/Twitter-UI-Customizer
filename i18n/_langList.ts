@@ -1,5 +1,5 @@
-export type Locale = string;
-export const langList: Locale[] = [
+export type Locale = typeof langList[number];
+export const langList = [
     "ar-x-fm",
     "ar",
     "bg",
@@ -53,6 +53,6 @@ export const langList: Locale[] = [
     "yo",
     "zh-Hant",
     "zh",
-];
+] as const;
 
 export default langList;

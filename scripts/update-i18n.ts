@@ -1,8 +1,8 @@
 import fs from "node:fs/promises";
 
 import { langList, type Locale } from "../i18n/_langList.ts";
-import { TUICI18ns } from "../i18n/_officialTwitterI18n.ts";
-import { config, type TranslateKey } from "../i18n/_officialTwitterI18nConfig.ts";
+import { TUICI18ns, type TUICI18nKey, type TranslateKey } from "../i18n/_officialTwitterI18n.ts";
+import { config } from "../i18n/_officialTwitterI18nConfig.ts";
 import { generatePWAManifest } from "./pwa-manifest/generate-manifest.ts";
 
 (async () => {
@@ -22,7 +22,7 @@ import { generatePWAManifest } from "./pwa-manifest/generate-manifest.ts";
     } else {
         // type Locale = string;
         // const locales: Locale[] = process.argv.length === 2 ? JSON.parse(await fs.readFile("./i18n/_langList.json", "utf8")) : process.argv.slice(2);
-        const locales: Locale[] = process.argv.length === 2 ? langList : process.argv.slice(2);
+        const locales: readonly Locale[] = process.argv.length === 2 ? langList : process.argv.slice(2) as Locale[];
 
         // type TranslateKey = string;
         // // 設定をロード
@@ -63,8 +63,9 @@ import { generatePWAManifest } from "./pwa-manifest/generate-manifest.ts";
         console.log("Generating i18n...");
         await Promise.all(
             locales.map(async (locale) => {
-                const returnObj: Record<string, string> = {};
-                for (const [tuicKey, translateID] of Object.entries<TranslateKey>(TUICI18ns)) {
+                const returnObj: Record<TUICI18nKey, string> = {} as Record<TUICI18nKey, string>;
+                const entries = <K extends PropertyKey, V>(o: Record<K, V>): [K, V][] => (Object.entries as <T>(o: T) => [keyof T, T[keyof T]][])(o);
+                for (const [tuicKey, translateID] of entries<TUICI18nKey, TranslateKey>(TUICI18ns)) {
                     if (i18nObject[locale][translateID] || i18nObjectOld[locale][translateID] || i18nObjectNew[locale][translateID]) {
                         let translatedText = "";
                         if (config.oldTranslate.includes(translateID)) {
@@ -75,7 +76,8 @@ import { generatePWAManifest } from "./pwa-manifest/generate-manifest.ts";
                             translatedText = i18nObject[locale][translateID];
                         }
 
-                        if (translateID in config.deleteString) {
+                        const contains = <T extends object>(o: T, v: PropertyKey): v is keyof typeof o => v in o;
+                        if (contains(config.deleteString, translateID)) {
                             for (const delString of config.deleteString[translateID]) {
                                 if (typeof delString === "string") {
                                     translatedText = translatedText.replaceAll(delString, "");

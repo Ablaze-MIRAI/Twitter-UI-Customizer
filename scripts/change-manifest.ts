@@ -16,11 +16,11 @@ export async function changeManifest(target: string) {
 
     let output: Manifest.WebExtensionManifest & { update_url?: string };
     if (target == "chromiumCRX") {
-        output = Object.assign(config.common, config.chromium, config.chromiumCRX) as Manifest.WebExtensionManifest & { update_url: string };
+        output = Object.assign(config.common, config.chromium, config.chromiumCRX) satisfies Manifest.WebExtensionManifest & { update_url: string };
         const repo = process.env["GITHUB_REPO"];
         output.update_url = output.update_url.replace("$(github.repository)", repo);
     } else {
-        output = Object.assign(config.common, config[target]) as Manifest.WebExtensionManifest;
+        output = Object.assign(config.common, config[target]) satisfies Manifest.WebExtensionManifest;
     }
 
     if (!fsSync.existsSync("./dist")) {

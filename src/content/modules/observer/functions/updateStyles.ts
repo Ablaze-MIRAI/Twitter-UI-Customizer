@@ -14,9 +14,9 @@ export function updateStyles() {
     likeToFavo();
 
     //* apply CSS
-    if (document.querySelector("html").style.fontSize.toString() != fontSize1 || document.querySelector(`h1[role="heading"] > a[href="/home"]`)?.className.includes("r-116um31") !== fontSize2) {
+    if (document.documentElement.style.fontSize != fontSize1 || document.querySelector(`h1[role="heading"] > a[href="/home"]`)?.className.includes("r-116um31") !== fontSize2) {
         applySystemCss();
-        fontSize1 = document.querySelector("html").style.fontSize.toString();
+        fontSize1 = document.documentElement.style.fontSize;
         fontSize2 = document.querySelector(`h1[role="heading"] > a[href="/home"]`)?.className.includes("r-116um31");
     }
 

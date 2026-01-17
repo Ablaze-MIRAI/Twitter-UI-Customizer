@@ -1,8 +1,10 @@
 import fs from "node:fs/promises";
 
 import { pwaManifest } from "./pwa-manifest.config.ts";
+import type { Locale } from "../../i18n/_langList.ts";
+import type { TUICI18nKey } from "../../i18n/_officialTwitterI18n.ts";
 
-export const generatePWAManifest = async (locale: string, ti18n: Record<string, string>) => {
+export const generatePWAManifest = async (locale: Locale, ti18n: Record<TUICI18nKey, string>) => {
     await fs.writeFile(
         `public/pwa-manifests/${locale}.json`,
         JSON.stringify(pwaManifest(

@@ -26,6 +26,7 @@ export default tseslint.config(
         semi: true,
         braceStyle: "1tbs",
         quoteProps: "as-needed",
+        severity: "warn",
     }),
     {
         files: ["**/*.{js,ts,tsx,vue}"],

@@ -17,7 +17,7 @@ export const TUICI18N = {
         return true;
     },
     get: (key: string, selectLang?: string) => {
-        const lang = selectLang ?? document.querySelector("html").getAttribute("lang");
+        const lang = selectLang ?? document.documentElement.getAttribute("lang");
         for (const _lang of [lang, "en", "ja"]) {
             if (_lang in i18nData && key in i18nData[_lang]) {
                 return i18nData[_lang][key];

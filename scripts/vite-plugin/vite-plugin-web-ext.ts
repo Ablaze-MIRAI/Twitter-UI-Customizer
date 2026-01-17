@@ -1,39 +1,41 @@
 import type { Plugin } from "vite";
-import type { ChildProcessWithoutNullStreams } from "node:child_process";
 import { isMainThread } from "node:worker_threads";
-import * as dotenv from "dotenv";
 import { type WebExtRunArgs, WebExtRun } from "./web-ext.ts";
 
-dotenv.config({ path: ".env.local" });
+process.loadEnvFile(".env.local");
 
 export default async (root: string, sourceDir: string, artifactsDir: string, mode: string): Promise<Plugin> => {
     let watch = false;
     const firefox_executable = process.env["TUIC_WEBEXT_FIREFOX_EXECUTABLE"];
-    let firefox_profile = process.env["TUIC_WEBEXT_FIREFOX_PROFILE"];
+    const firefox_profile = process.env["TUIC_WEBEXT_FIREFOX_PROFILE"] ?? "development";
     const chromium_executable = process.env["TUIC_WEBEXT_CHROMIUM_EXECUTABLE"];
     const chromium_profile = process.env["TUIC_WEBEXT_CHROMIUM_PROFILE"];
 
     const firefox_keep_profile_changes = process.env["TUIC_WEBEXT_FIREFOX_KEEP_PROFILE_CHANGES"] === "true";
     const chromium_keep_profile_changes = process.env["TUIC_WEBEXT_CHROMIUM_KEEP_PROFILE_CHANGES"] === "true";
-    // let webExtRunner: MultiExtensionRunner | null = null;
 
     // let worker;
-    let child: ChildProcessWithoutNullStreams;
     let webExtRunner: WebExtRun;
 
-    if (!firefox_profile) {
-        firefox_profile = "development";
+    switch (mode) {
+        case "firefox":
+            console.log("firefox_executable          ", firefox_executable);
+            console.log("firefox_profile             ", firefox_profile);
+            console.log("firefox_keep_profile_changes", firefox_keep_profile_changes);
+            break;
+        case "chromium":
+            console.log("chromium_executable          ", chromium_executable);
+            console.log("chromium_profile             ", chromium_profile);
+            console.log("chromium_keep_profile_changes", chromium_keep_profile_changes);
+            break;
     }
-    console.log("firefox_executable");
-    console.log(firefox_executable);
-    console.log(chromium_profile);
-    //let chromium_executable = process.env["TUIC_WEBEXT_CHROMIUM_EXECUTABLE"];
+
     return {
         name: "web-ext",
         enforce: "post",
         apply: "build",
-        buildStart(options) {
-            // console.log(options.watch);
+        options(options) {
+            watch = options.watch !== undefined && options.watch !== false;
 
             switch (mode) {
                 case "firefox":
@@ -44,14 +46,11 @@ export default async (root: string, sourceDir: string, artifactsDir: string, mod
                     this.error("mode should be 'firefox', 'chromium', or 'disable-web-ext'");
             }
         },
-        options(options) {
-            watch = options.watch !== undefined && options.watch !== false;
-        },
         async closeBundle() {
             if (mode === "disable-web-ext") {
                 return;
             }
-            console.log("Running web-ext in " + (isMainThread ? "main thread" : "worker") + " at " + sourceDir);
+            console.log(`Running web-ext in ${isMainThread ? "main thread" : "worker"} at ${sourceDir}`);
 
             const args: WebExtRunArgs = {
                 mode,

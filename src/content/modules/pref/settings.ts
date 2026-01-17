@@ -457,4 +457,4 @@ export const TUICSettings = {
             { id: "hour12", i18n: "dateAndTime.options.hour12", default: true },
         ],
     },
-} as const;
+} as const satisfies Record<string, TUICSetting>;

@@ -13,7 +13,7 @@ export function runSettingComponentObserver() {
 
     placeSettingPage();
 
-    DisplaySettingObserver.observe(document.querySelector("body"), {
+    DisplaySettingObserver.observe(document.body, {
         childList: true,
         subtree: true,
     });

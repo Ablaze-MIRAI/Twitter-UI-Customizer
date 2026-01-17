@@ -1,7 +1,6 @@
-import type { TranslateKey } from "./_officialTwitterI18nConfig.ts";
-
-export type TUICI18nKey = string;
-export const TUICI18ns: Record<TUICI18nKey, TranslateKey> = {
+export type TUICI18nKey = keyof typeof TUICI18ns;
+export type TranslateKey = typeof TUICI18ns[TUICI18nKey];
+export const TUICI18ns = {
     "bottomTweetButtons-reply": "hdf7226a",
     "bottomTweetButtons-retweet": "d6c8514a",
     "bottomTweetButtons-like": "d636ebc6",
@@ -161,6 +160,6 @@ export const TUICI18ns: Record<TUICI18nKey, TranslateKey> = {
     "timeline-pinningTab-foryou": "d1e0a75f",
     "timeline-pinningTab-following": "dafd69e9",
     "invisibleItems-editImage": "fd45fe70",
-};
+} as const;
 
 export default TUICI18ns;

@@ -10,7 +10,7 @@
  * @return {T} 返り値もしくはそのままの値
  */
 export function fontSizeClass<T extends number | string>(x1: T, x2: T, x3: T, x4: T, x5: T) {
-    const fontSize = document.querySelector("html").style.fontSize.toString();
+    const fontSize = document.documentElement.style.fontSize;
     switch (fontSize) {
         case "14px":
             return document.querySelector(`h1[role="heading"] > a[href="/home"]`)?.className.includes("r-116um31") ? x1 : x2;

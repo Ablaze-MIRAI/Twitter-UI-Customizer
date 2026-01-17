@@ -15,9 +15,9 @@ function getIntlFormat() {
         getPref("dateAndTime.options.hour12"),
         getPref("dateAndTime.dateAboveTweet") === "absolutely",
     ];
-    const changedLang = language !== document.querySelector("html").lang;
+    const changedLang = language !== document.documentElement.lang;
     if (changedLang) {
-        language = document.querySelector("html").lang;
+        language = document.documentElement.lang;
         DateFormat = Intl.DateTimeFormat(language, { month: "short", day: "numeric" });
     }
     if (

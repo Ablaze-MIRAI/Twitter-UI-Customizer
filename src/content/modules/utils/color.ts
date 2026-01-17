@@ -47,7 +47,7 @@ export function getColorFromPref(name: string, type: string, mode: "buttonColor"
  * @return {"dark" | "blue" | "light"} 背景色
  */
 export function backgroundColorCheck(): "dark" | "blue" | "light" {
-    const bodyStyle = document.querySelector("body").style.backgroundColor.toString();
+    const bodyStyle = document.body.style.backgroundColor;
     if (bodyStyle == "rgb(0, 0, 0)") {
         return "dark";
     } else if (bodyStyle == "rgb(21, 32, 43)") {

@@ -1,15 +1,10 @@
-export type TranslateKey = string;
-export const config: {
-    oldTranslate: TranslateKey[];
-    latestTranslate: TranslateKey[];
-    fixPlural: TranslateKey[];
-    fixSingular: TranslateKey[];
-    deleteString: Record<TranslateKey, (string/* | { text: RegExp; replaceIndex: number }*/)[]>;
-} = {
+import type { TranslateKey } from "./_officialTwitterI18n.ts";
+
+export const config = {
     oldTranslate: [
         "e2414185",
         "ea831526",
-    ],
+    ] satisfies readonly TranslateKey[] as readonly TranslateKey[],
     latestTranslate: [
         "a4d3eb67",
         //"df34a454",
@@ -33,8 +28,8 @@ export const config: {
         "df45f564",
         "ed1f39ec",
         "f75d1806",
-        "j11cb650",
-        "c8061958",
+        //"j11cb650",
+        //"c8061958",
         "e0cb0c72",
         "b007440a",
         "b55d8a78",
@@ -52,15 +47,16 @@ export const config: {
         "h5e38204",
         "f88553c8",
         "fd45fe70",
-    ],
+    ] satisfies readonly TranslateKey[] as readonly TranslateKey[],
     fixPlural: [
         "c42234da",
         "d6917e0d",
         "e2414185",
         //"e74e9bb7",
         "fdc023d7",
-    ],
-    fixSingular: [],
+    ] satisfies readonly TranslateKey[] as readonly TranslateKey[],
+    fixSingular: [
+    ] satisfies readonly TranslateKey[] as readonly TranslateKey[],
     deleteString: {
         g132f681: [
             "@{screenName}",
@@ -104,7 +100,7 @@ export const config: {
         dafd69e9: [
             "{noun}",
         ],
-    },
-};
+    } as const satisfies Partial<Record<TranslateKey, readonly (string/* | { text: RegExp; replaceIndex: number }*/)[]>>,
+} as const;
 
 export default config;

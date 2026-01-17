@@ -32,28 +32,25 @@ export function addCssElement() {
     document.querySelector("#twitter_ui_customizer_css")?.remove();
     document.querySelector("#twitter_ui_customizer")?.remove();
 
-    const twitterHead = document.querySelector("head");
-
     const elemSYSCSS = document.createElement("style");
     elemSYSCSS.id = "twitter_ui_customizer";
-    twitterHead.appendChild(elemSYSCSS);
+    document.head.appendChild(elemSYSCSS);
     applySystemCss();
 
     if (!isSafemode) {
         const customCssElement = document.createElement("style");
         customCssElement.id = "twitter_ui_customizer_css";
-        twitterHead.appendChild(customCssElement);
+        document.head.appendChild(customCssElement);
         applyCustomCss();
     }
 }
 
 export function applyDataCss() {
     document.querySelector("#twitter_ui_customizer_cssData")?.remove();
-    const twitterHead = document.querySelector("head");
 
     const elemDataCSS = document.createElement("style");
     elemDataCSS.id = "twitter_ui_customizer_cssData";
-    twitterHead.appendChild(elemDataCSS);
+    document.head.appendChild(elemDataCSS);
     elemDataCSS.textContent = `
     [data-tuic-icon-type="dog"] {
         background-image: url('${chrome.runtime.getURL(DOG)}');
@@ -71,11 +68,10 @@ export function applyDataCss() {
 
 export function applyCustomIcon() {
     document.querySelector("#twitter_ui_customizer_cssCustomIcon")?.remove();
-    const twitterHead = document.querySelector("head");
 
     const dataCssElement = document.createElement("style");
     dataCssElement.id = "twitter_ui_customizer_cssCustomIcon";
-    twitterHead.appendChild(dataCssElement);
+    document.head.appendChild(dataCssElement);
     dataCssElement.textContent = `
     [data-tuic-icon-type="custom"],
     #TUICIcon_IconImg {
@@ -132,32 +128,29 @@ export function applySystemCss() {
     }
     document.documentElement.dataset.tuicSettings = settingsOutput;
 
-    const r = document.querySelector(":root");
-    if (r instanceof HTMLElement) {
-        const rs = r.style;
+    const rs = document.documentElement.style;
 
-        for (const elem of getSettingIDs("buttonColor")) {
-            for (const el of ["background", "border", "color"]) {
-                if (ColorData.defaultTUICColor.colors[elem][el]) {
-                    rs.setProperty(`--twitter-${elem}-${el}`, getColorFromPref(elem, el, null));
-                }
+    for (const elem of getSettingIDs("buttonColor")) {
+        for (const el of ["background", "border", "color"]) {
+            if (ColorData.defaultTUICColor.colors[elem][el]) {
+                rs.setProperty(`--twitter-${elem}-${el}`, getColorFromPref(elem, el, null));
             }
         }
-        rs.setProperty("--twitter-TUIC-color", ColorData.TUICFixedColor[backgroundColor].textColor);
-        rs.setProperty("--TUIC-container-background", ColorData.TUICFixedColor[backgroundColor].containerBackground);
-        rs.setProperty("--TUIC-container-background2", ColorData.TUICFixedColor[backgroundColor].containerBackground2);
-        rs.setProperty("--TUIC-color-hover-efect", ColorData.TUICFixedColor[backgroundColor].colorHover);
-
-        rs.setProperty("--TUIC-sidebar-hover-color", backgroundColorCheck() == "light" ? "rgba(15,20,25,0.1)" : "rgba(247,249,249,0.1)");
-        rs.setProperty("--TUIC-sidebar-active-color", backgroundColorCheck() == "light" ? "rgba(15,20,25,0.2)" : "rgba(247,249,249,0.2)");
-        rs.setProperty("--TUIC-sidebar-focus-color", backgroundColorCheck() == "light" ? "rgb(135,138,140)" : "rgb(251,252,252)");
-
-        rs.setProperty("--TUIC-detail-border", ColorData.TUICFixedColor[backgroundColor].detailBorder);
-
-        rs.setProperty("--TUIC-pinnedTab-background", `rgba(${backgroundColorClass("0, 0, 0, 0.65", "21, 32, 43, 0.75", "255, 255, 255, 0.85")})`);
-
-        rs.setProperty("--TUIC-pinnedTab-top", `${fontSizeClass("47", "49", "52", "57", "63")}px`);
     }
+    rs.setProperty("--twitter-TUIC-color", ColorData.TUICFixedColor[backgroundColor].textColor);
+    rs.setProperty("--TUIC-container-background", ColorData.TUICFixedColor[backgroundColor].containerBackground);
+    rs.setProperty("--TUIC-container-background2", ColorData.TUICFixedColor[backgroundColor].containerBackground2);
+    rs.setProperty("--TUIC-color-hover-efect", ColorData.TUICFixedColor[backgroundColor].colorHover);
+
+    rs.setProperty("--TUIC-sidebar-hover-color", backgroundColorCheck() == "light" ? "rgba(15,20,25,0.1)" : "rgba(247,249,249,0.1)");
+    rs.setProperty("--TUIC-sidebar-active-color", backgroundColorCheck() == "light" ? "rgba(15,20,25,0.2)" : "rgba(247,249,249,0.2)");
+    rs.setProperty("--TUIC-sidebar-focus-color", backgroundColorCheck() == "light" ? "rgb(135,138,140)" : "rgb(251,252,252)");
+
+    rs.setProperty("--TUIC-detail-border", ColorData.TUICFixedColor[backgroundColor].detailBorder);
+
+    rs.setProperty("--TUIC-pinnedTab-background", `rgba(${backgroundColorClass("0, 0, 0, 0.65", "21, 32, 43, 0.75", "255, 255, 255, 0.85")})`);
+
+    rs.setProperty("--TUIC-pinnedTab-top", `${fontSizeClass("47", "49", "52", "57", "63")}px`);
 }
 
 export function applyCustomCss() {
