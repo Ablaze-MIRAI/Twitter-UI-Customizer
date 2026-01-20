@@ -8,7 +8,7 @@ const manifest: {
 } = {
     // 共通設定
     common: {
-        version: "5.6.3",
+        version: "5.6.4",
         manifest_version: 3,
         name: "__MSG_extensionName__",
         description: "__MSG_extensionDescription__",
