@@ -8,7 +8,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup vapor lang="ts">
 import settingSubtitle2 from "../components/settingSubtitle2.vue";
 import CheckBoxList from "@shared/options/components/CheckBoxList.vue";
 import RadioButtonList from "@shared/options/components/RadioButtonList.vue";

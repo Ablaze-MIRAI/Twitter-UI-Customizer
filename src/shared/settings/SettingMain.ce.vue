@@ -71,7 +71,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup vapor lang="ts">
 import TUICLOGO_GRAY from "@content/icons/branding/tuic_logo_gray.svg?component";
 import ICON_BRUSH from "@content/icons/common/brush.svg?component";
 import ICON_BRUSH_ENABLED from "@content/icons/common/brush_enabled.svg?component";

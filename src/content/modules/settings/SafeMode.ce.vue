@@ -36,7 +36,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup vapor lang="ts">
 import { TUICI18N } from "@modules/i18n";
 
 import OptionMain from "@shared/settings/SettingMain.ce.vue";

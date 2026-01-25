@@ -9,7 +9,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup vapor lang="ts">
 import CheckBoxList from "@shared/options/components/CheckBoxList.vue";
 import settingSubtitle2 from "../components/settingSubtitle2.vue";
 import { TUICI18N } from "@modules/i18n";

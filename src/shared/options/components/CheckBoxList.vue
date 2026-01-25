@@ -4,7 +4,7 @@
     </template>
 </template>
 
-<script setup lang="ts">
+<script setup vapor lang="ts">
 import { getSettingData, TUICSettingIDs } from "@modules/pref";
 import CheckBox from "./CheckBox.vue";
 

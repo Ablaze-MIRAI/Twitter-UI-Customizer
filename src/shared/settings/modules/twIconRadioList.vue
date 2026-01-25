@@ -25,7 +25,7 @@
     <IconRadioButton v-if="!customRadioBtn.isText" id="twitterIcon.icon" :valueName="customRadioBtn.radioName" :name="getSettingI18n('twitterIcon.icon', 'custom')" :icon="customRadioBtn.svgComponent" />
 </template>
 
-<script setup lang="ts">
+<script setup vapor lang="ts">
 import { Component } from "vue";
 import RadioButton from "@shared/options/components/RadioButton.vue";
 import IconRadioButton from "@shared/options/components/IconRadioButton.vue";

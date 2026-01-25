@@ -1,4 +1,4 @@
-import { createApp } from "vue";
+import { createVaporApp } from "vue";
 import safemodeVue from "./SafeMode.ce.vue";
 import { createPinia } from "pinia";
 
@@ -22,13 +22,15 @@ export function runSafemode() {
     document.body.appendChild(entry);
 
     // styles, not style
-    if (safemodeVue.styles !== undefined) {
+    //@ts-expect-error styles is not typed in vapor mode
+    const styles: string | undefined = safemodeVue.styles;
+    if (styles !== undefined) {
         const style = document.createElement("style");
-        style.textContent = safemodeVue.styles;
+        style.textContent = styles;
         document.head.appendChild(style);
     }
 
-    const app = createApp(safemodeVue);
+    const app = createVaporApp(safemodeVue);
     app.use(createPinia());
     app.mount("#TUICOptionSafemodeEntry");
 }

@@ -7,7 +7,7 @@
     </button>
 </template>
 
-<script setup lang="ts">
+<script setup vapor lang="ts">
 import { applyCustomCss } from "@content/applyCSS";
 import { TUICI18N } from "@modules/i18n";
 

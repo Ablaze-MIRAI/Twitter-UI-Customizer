@@ -33,7 +33,7 @@
     <ColorsList />
 </template>
 
-<script setup lang="ts">
+<script setup vapor lang="ts">
 import { TUICI18N } from "@modules/i18n";
 import { isSafemode } from "@content/modules/settings/safemode";
 

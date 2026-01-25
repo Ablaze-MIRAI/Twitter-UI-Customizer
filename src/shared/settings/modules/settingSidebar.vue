@@ -34,7 +34,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup vapor lang="ts">
 import FIGURE_LEFTSIDEBAR from "@content/icons/figure/left_sidebar.svg?component";
 import FIGURE_RIGHTSIDEBAR from "@content/icons/figure/right_sidebar.svg?component";
 import ICON_HOME_TUIC from "@content/icons/home/home_tuic.svg?component";

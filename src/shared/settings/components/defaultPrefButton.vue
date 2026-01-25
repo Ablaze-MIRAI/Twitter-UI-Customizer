@@ -2,7 +2,7 @@
     <IconButton i18n="settingUI-restoreDefaultAll" :icon="ICON" class="TUIC_setting_defaultprefbutton" @click="setDefault" />
 </template>
 
-<script setup lang="ts">
+<script setup vapor lang="ts">
 import { TUICI18N } from "@modules/i18n";
 import { waitForElement } from "@modules/utils/controlElements";
 import { getPref, setPref, mergeDefaultPref, savePref } from "@modules/pref";

@@ -1,5 +1,5 @@
 import { waitForElement } from "@modules/utils/controlElements";
-import { createApp } from "vue";
+import { createVaporApp } from "vue";
 import SettingsMain from "@shared/settings/SettingMain.ce.vue";
 import { createPinia } from "pinia";
 import { isSafemode } from "./safemode";
@@ -28,9 +28,11 @@ function placeSettingComponent(rootElement: HTMLElement) {
     if (document.querySelector("#TUICSettings")) return;
 
     // NOTE: SettingsMain.ce.vue 内で定義されたスタイルを適用する
-    if (SettingsMain.styles !== undefined) {
+    //@ts-expect-error styles is not typed in vapor mode
+    const styles: string | undefined = SettingsMain.styles;
+    if (styles !== undefined) {
         const style = document.createElement("style");
-        style.textContent = SettingsMain.styles;
+        style.textContent = styles;
         document.head.appendChild(style);
     }
 
@@ -39,7 +41,7 @@ function placeSettingComponent(rootElement: HTMLElement) {
         div.id = "TUICSettingsContainer";
         rootElement.appendChild(div);
     }
-    const app = createApp(SettingsMain);
+    const app = createVaporApp(SettingsMain);
     app.use(createPinia());
     app.mount("#TUICSettingsContainer");
 }

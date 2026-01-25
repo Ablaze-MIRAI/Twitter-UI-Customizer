@@ -74,7 +74,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup vapor lang="ts">
 import UpDownList from "@shared/options/components/UpDownList.vue";
 import SectionTitle2 from "../components/SectionTitle2.vue";
 import settingSubtitle2 from "../components/settingSubtitle2.vue";

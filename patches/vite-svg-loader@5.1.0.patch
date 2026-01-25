@@ -1,0 +1,12 @@
+diff --git a/index.js b/index.js
+index e1e5ed662114106a41469ccd08bdb5d0d9f7d780..0f906f78729b0d183ae6e57812b76b6abddeea90 100644
+--- a/index.js
++++ b/index.js
+@@ -51,6 +51,7 @@ module.exports = function svgLoader (options = {}) {
+         id: JSON.stringify(id),
+         source: svg,
+         filename: path,
++        vapor: true,
+         transformAssetUrls: false
+       })
+ 

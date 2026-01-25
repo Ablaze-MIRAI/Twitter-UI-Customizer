@@ -11,7 +11,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup vapor lang="ts">
 import ICON_HOME_TUIC from "@content/icons/home/home_tuic.svg?component";
 import ICON_HOME_TWITTER from "@content/icons/home/home_twitter.svg?component";
 import ICON_HOME_X from "@content/icons/home/home_x.svg?component";

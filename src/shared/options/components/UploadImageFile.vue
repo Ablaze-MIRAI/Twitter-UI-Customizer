@@ -10,7 +10,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup vapor lang="ts">
 import { applyCustomIcon, applySystemCss } from "@content/applyCSS";
 import { TUICI18N } from "@modules/i18n";
 import { ref } from "vue";

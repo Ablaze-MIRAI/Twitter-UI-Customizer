@@ -10,7 +10,7 @@
     </template>
 </template>
 
-<script setup lang="ts">
+<script setup vapor lang="ts">
 import ColorSetting from "./ColorSetting.vue";
 import { ColorData } from "@shared/sharedData";
 

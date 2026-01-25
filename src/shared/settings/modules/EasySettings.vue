@@ -5,7 +5,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup vapor lang="ts">
 import BRAND_TWITTER from "@content/icons/brand/twitter.svg?component";
 import ICON_VERIFIED from "@content/icons/common/verified.svg?component";
 import ICON_MORE from "@content/icons/common/more.svg?component";

@@ -6,7 +6,7 @@
     </button>
 </template>
 
-<script setup lang="ts">
+<script setup vapor lang="ts">
 import ICON_RESET from "@content/icons/common/reset.svg?component";
 
 defineProps<{

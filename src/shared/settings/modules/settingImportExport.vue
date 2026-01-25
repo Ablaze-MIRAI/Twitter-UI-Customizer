@@ -76,7 +76,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup vapor lang="ts">
 import { TUICI18N } from "@modules/i18n";
 import { getPref, setPref, savePref, updatePref, mergePref, mergeDefaultPref, exportPref } from "@modules/pref";
 import { waitForElement } from "@modules/utils/controlElements";

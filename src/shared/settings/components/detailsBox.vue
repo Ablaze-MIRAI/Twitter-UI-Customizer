@@ -14,7 +14,7 @@
     </details>
 </template>
 
-<script setup lang="ts">
+<script setup vapor lang="ts">
 import { TUICI18N } from "@modules/i18n";
 import { Component, ref } from "vue";
 import ICON_REVEAL from "@content/icons/common/reveal.svg?component";

@@ -6,7 +6,7 @@
     </button>
 </template>
 
-<script setup lang="ts">
+<script setup vapor lang="ts">
 import ICON_TRANSPARENT from "@content/icons/common/transparent.svg?component";
 import { ref } from "vue";
 
