@@ -1,34 +1,39 @@
-# <img width="32" height="32" src="./public/icon/newIcon_TUIC_C_Blue.svg" /> Twitter UI Customizer
+<div align="center">
+<h1><img width="43" height="43" src="./public/icon/newIcon_TUIC_C_Blue.svg" /><br />Twitter UI Customizer</h1>
+<img alt="" src="./public/icon/header.png" />
 
-日本語 | [English](./README_EN.md)
-
-![Header Image](./public/icon/header.png)
-[![Github Actions](https://github.com/Ablaze-MIRAI/Twitter-UI-Customizer/workflows/Build/badge.svg)](https://github.com/Ablaze-MIRAI/Twitter-UI-Customizer/actions/workflows/packaging.yml)
-[![Lint](https://github.com/Ablaze-MIRAI/Twitter-UI-Customizer/actions/workflows/lint.yml/badge.svg)](https://github.com/Ablaze-MIRAI/Twitter-UI-Customizer/actions/workflows/lint.yml)
-[![Version](https://img.shields.io/github/v/release/Ablaze-MIRAI/Twitter-UI-Customizer?label=Version)](https://github.com/Ablaze-MIRAI/Twitter-UI-Customizer/releases/latest)
-[![License](https://img.shields.io/github/license/Ablaze-MIRAI/Twitter-UI-Customizer?label=License&color=blue)](https://github.com/Ablaze-MIRAI/Twitter-UI-Customizer/blob/main/LICENSE)  
+<a href="https://github.com/Ablaze-MIRAI/Twitter-UI-Customizer/releases/latest"><img alt="Latest version" src="https://img.shields.io/github/v/release/Ablaze-MIRAI/Twitter-UI-Customizer?label=Version" /></a>
+<a href="https://github.com/Ablaze-MIRAI/Twitter-UI-Customizer/blob/main/LICENSE"><img alt="License: MIT" src="https://img.shields.io/github/license/Ablaze-MIRAI/Twitter-UI-Customizer?label=License&color=blue" /></a>
+<a href="https://github.com/Ablaze-MIRAI/Twitter-UI-Customizer/actions/workflows/packaging.yml"><img alt="GitHub Actions Status" src="https://github.com/Ablaze-MIRAI/Twitter-UI-Customizer/workflows/Build/badge.svg" /></a>
+<a href="https://github.com/Ablaze-MIRAI/Twitter-UI-Customizer/actions/workflows/lint.yml"><img alt="Lint Status" src="https://github.com/Ablaze-MIRAI/Twitter-UI-Customizer/actions/workflows/lint.yml/badge.svg" /></a>
+  
 <a href="https://addons.mozilla.org/firefox/addon/twitter-ui-customizer/"><img alt="Firefox Browser ADD-ONS" width="172" height="60" src="https://blog.mozilla.org/addons/files/2015/11/get-the-addon.png" /></a>
-<a href="https://chrome.google.com/webstore/detail/twitter-ui-customizer/hpmhdmlhnppmmipefebkhkbpdcjiidmh"><img alt="Chrome WebStore" width="191.8" height="58" src="https://developer.chrome.com/static/docs/webstore/branding/image/HRs9MPufa1J1h5glNhut.png" /></a>
-<a href="https://crowdin.com/project/twiter-ui-customizer"><img alt="crowdin" width="175" height="50" src="https://badges.crowdin.net/badge/light/crowdin-on-dark@2x.png" /></a>
+<a href="https://chrome.google.com/webstore/detail/twitter-ui-customizer/hpmhdmlhnppmmipefebkhkbpdcjiidmh"><img alt="Chrome Web Store" width="191.8" height="58" src="https://developer.chrome.com/static/docs/webstore/branding/image/HRs9MPufa1J1h5glNhut.png" /></a>
+<a href="https://crowdin.com/project/twiter-ui-customizer"><img alt="Crowdin" width="175" height="50" src="https://badges.crowdin.net/badge/light/crowdin-on-dark@2x.png" /></a>
 
-[crxファイルでのインストール方法はこちら](https://gist.github.com/Hibi-10000/54d283e5e5deabc3c491ce16556b4390)  
-[情報・設定・CSS集(TwitterのUIの色を公式Twitterに近くすることも出来ます！)](https://github.com/kaonasi-biwa/TUIC-Information-Prefs-and-CSSs/blob/main/README.md)
+<p>日本語 | <a href="./README_EN.md">English</a></p>
+</div>
 
-Firefoxの場合は自動で更新してくれるFirefox Browser ADD-ONSがおすすめです！
+## インストール方法
 
-Chromiumの場合は、
+### Chrome
 
-- Chrome WebStore：自動更新、更新の反映が遅い
-- zipファイル ：手動、 すぐに更新を適用できる
-- crxファイル ：自動更新、初期設定が少し面倒
+- [Chrome Web Store](https://chromewebstore.google.com/detail/twitter-ui-customizer/hpmhdmlhnppmmipefebkhkbpdcjiidmh?hl=ja) (推奨)
+- [自動更新 (Twitter_UI_Customizer_Chromium.crx)](https://gist.github.com/Hibi-10000/54d283e5e5deabc3c491ce16556b4390)
+- [手動更新 (Twitter_UI_Customizer_Chromium.zip)](https://github.com/Ablaze-MIRAI/Twitter-UI-Customizer/releases/latest)
 
-の中のお好きなものをお選びください！
+更新をいち早く取得したい場合は、手動更新をおすすめします。
+
+### Firefox
+
+- [Firefox Browser ADD-ONS](https://addons.mozilla.org/ja/firefox/addon/twitter-ui-customizer/) (推奨)
+- [手動更新 (Twitter_UI_Customizer_Firefox.xpi)](https://github.com/Ablaze-MIRAI/Twitter-UI-Customizer/releases/latest)
 
 ## 貢献者様へ
 
-詳しくは[CONTRIBUTING.md](./CONTRIBUTING.md)を御覧ください。
+詳しくは[`CONTRIBUTING.md`](./CONTRIBUTING.md)を御覧ください。
 
-## 実装されている機能
+## 機能
 
 ### ツイート
 
@@ -73,43 +78,43 @@ Chromiumの場合は、
 
 ## Special Thanks (使い方あってるか知らんけど)
 
-GitHub:
+### GitHub
 
-- @irhdevel (すばらしきデザイン)
-- @GrapeApple0 (クライアント名表示)
-- @Taka005 (ソースコードの整理)
-- @Hibi-10000 (アメリカ英語の翻訳・CRXリリースなど)
-- @KotoneFami (機能追加やソースコードの整理など)
-- @nakasyou (デザインの改良・機能追加)
-- @surapunoyousei (デバッグしやすく)
-- @typeling1578 (リファクタリング)
-- @regularenthropy (リファクタリング・パフォーマンス向上)
-- @GreenDotBlue99 (タブの固定機能)
-- @nyanrus (設定画面の改良＆リファクタリング)
+- [@irhdevel](https://github.com/irhdevel) (すばらしきデザイン)
+- [@GrapeApple0](https://github.com/GrapeApple0) (クライアント名表示)
+- [@Taka005](https://github.com/Taka005) (ソースコードの整理)
+- [@Hibi-10000](https://github.com/Hibi-10000) (アメリカ英語の翻訳・CRXリリースなど)
+- [@KotoneFami](https://github.com/KotoneFami) (機能追加やソースコードの整理など)
+- [@nakasyou](https://github.com/nakasyou) (デザインの改良・機能追加)
+- [@surapunoyousei](https://github.com/surapunoyousei) (デバッグしやすく)
+- [@typeling1578](https://github.com/typeling1578) (リファクタリング)
+- [@regularentropy](https://github.com/regularentropy) (リファクタリング・パフォーマンス向上)
+- [@BD9Max](https://github.com/BD9Max) (タブの固定機能)
+- [@nyanrus](https://github.com/nyanrus) (設定画面の改良＆リファクタリング)
 
-Crowdin:
+### Crowdin
 
-- @nyanrus (韓国語と英語の翻訳)
-- @loading_yt (簡体中国語と繁体中国語の翻訳)
-- @hibi_10000 (英語の翻訳)
-- @enthropyreg (ロシア語とウクライナ語の翻訳)
-- @teamolhuang (繁体中国語の翻訳)
-- @rosalindsun12 (簡体中国語の翻訳)
-- @truselya (ロシア語の翻訳)
-- @gok7ug (トルコ語の翻訳)
-- @saturnsoot (ドイツ語の翻訳)
-- @yanniekwok314 (繁体中国語の翻訳)
-- @lafixier (英語の翻訳)
-- @cutterknife (英語の翻訳)
-- @deflecta (ロシア語の翻訳)
-- @GrapeApple0 (英語の翻訳)
-- @ch-love (英語の翻訳)
+- [@nyanrus](https://crowdin.com/profile/nyanrus) (韓国語と英語の翻訳)
+- [@loading_yt](https://crowdin.com/profile/loading_yt) (簡体中国語と繁体中国語の翻訳)
+- [@hibi_10000](https://crowdin.com/profile/hibi_10000) (英語の翻訳)
+- [@entropyreg](https://crowdin.com/profile/entropyreg) (ロシア語とウクライナ語の翻訳)
+- [@teamolhuang](https://crowdin.com/profile/teamolhuang) (繁体中国語の翻訳)
+- [@rosalindsun12](https://crowdin.com/profile/rosalindsun12) (簡体中国語の翻訳)
+- [@truselya](https://crowdin.com/profile/truselya) (ロシア語の翻訳)
+- [@gok7ug](https://crowdin.com/profile/gok7ug) (トルコ語の翻訳)
+- [@saturnsoot](https://crowdin.com/profile/saturnsoot) (ドイツ語の翻訳)
+- [@yanniekwok314](https://crowdin.com/profile/yanniekwok314) (繁体中国語の翻訳)
+- [@lafixier](https://crowdin.com/profile/lafixier) (英語の翻訳)
+- [@cutterknife](https://crowdin.com/profile/cutterknife) (英語の翻訳)
+- [@deflecta](https://crowdin.com/profile/deflecta) (ロシア語の翻訳)
+- [@GrapeApple0](https://crowdin.com/profile/GrapeApple0) (英語の翻訳)
+- [@ch-love](https://crowdin.com/profile/ch-love) (英語の翻訳)
 
-その他:
+### その他
 
-- @CutterKnife_ / Twitter **(アイコン・ロゴの作成者)**
-- @PianoCat1010 / Twitter **(「いいねとリツイート」のアイコンの作成者)**
+- [@CutterKnife_](https://x.com/i/user/925882225005961216) (Twitter) **(アイコン・ロゴの作成者)**
+- [@nakanoin_19](https://x.com/i/user/1188274699467247616) (Twitter) **(「いいねとリツイート」のアイコンの作成者)**
 
 ## アイコン画像の提供元
 
-[System UIcons (Unlicense)](https://www.systemuicons.com/)
+- [System UIcons](https://www.systemuicons.com/) (Unlicense)
