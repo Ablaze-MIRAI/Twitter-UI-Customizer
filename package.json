@@ -8,6 +8,7 @@
         "debug": "pnpm run debug:firefox",
         "debug:firefox": "pnpm run build:firefox --watch",
         "debug:chromium": "pnpm run build:chromium --watch",
+        "type-check": "vue-tsc --build",
         "lint": "pnpm run lint:tsc & pnpm run lint:eslint & pnpm run lint:stylelint & pnpm run lint:prettier",
         "lint:tsc": "vue-tsc --noEmit",
         "lint:eslint": "eslint .",

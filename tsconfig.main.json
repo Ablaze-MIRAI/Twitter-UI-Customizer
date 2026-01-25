@@ -15,7 +15,6 @@
         "paths": {
             "@content/*": ["./src/content/*"],
             "@shared/*": ["./src/shared/*"],
-            "@modules/*": ["./src/content/modules/*"],
             "@i18nData/*": ["./i18n/*"],
             "@third-party/*": ["./third-party/*"],
         },

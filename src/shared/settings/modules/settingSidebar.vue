@@ -35,11 +35,11 @@
 </template>
 
 <script setup lang="ts">
-import FIGURE_LEFTSIDEBAR from "@content/icons/figure/left_sidebar.svg?component";
-import FIGURE_RIGHTSIDEBAR from "@content/icons/figure/right_sidebar.svg?component";
-import ICON_HOME_TUIC from "@content/icons/home/home_tuic.svg?component";
-import ICON_HOME_TWITTER from "@content/icons/home/home_twitter.svg?component";
-import ICON_HOME_X from "@content/icons/home/home_x.svg?component";
+import FIGURE_LEFTSIDEBAR from "@shared/icons/figure/left_sidebar.svg?component";
+import FIGURE_RIGHTSIDEBAR from "@shared/icons/figure/right_sidebar.svg?component";
+import ICON_HOME_TUIC from "@shared/icons/home/home_tuic.svg?component";
+import ICON_HOME_TWITTER from "@shared/icons/home/home_twitter.svg?component";
+import ICON_HOME_X from "@shared/icons/home/home_x.svg?component";
 import UpDownList from "@shared/options/components/UpDownList.vue";
 import CheckBoxList from "@shared/options/components/CheckBoxList.vue";
 import settingSubTitle from "@shared/options/components/textParts/settingSubTitle.vue";

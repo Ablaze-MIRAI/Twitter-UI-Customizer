@@ -3,7 +3,7 @@
         <input type="file" accept="image/*" class="TUIC_setting_text TUICSelectImg" @change="changeCustomCSS()" ref="twitterIcon" />
         <div style="display: flex; gap: 8px; align-items: center">
             <p style="color: rgb(113 118 124)" class="TUIC_setting_text">
-                {{ TUICI18N.get("twitterIcon-nowIcon") }}
+                {{ translate("twitterIcon-nowIcon") }}
             </p>
             <span id="TUICIcon_IconImg" class="TUICUploadedImg"></span>
         </div>
@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 import { applyCustomIcon, applySystemCss } from "@content/applyCSS";
-import { TUICI18N } from "@modules/i18n";
+import { translate } from "@content/i18n";
 import { ref } from "vue";
 
 const twitterIcon = ref(null);

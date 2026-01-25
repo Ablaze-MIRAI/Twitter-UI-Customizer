@@ -1,12 +1,12 @@
 <template>
     <div class="TUIC_setting_iconbutton">
         <component :is="icon" class="TUIC_setting_iconbutton_icon" />
-        {{ TUICI18N.get(i18n) }}
+        {{ translate(i18n) }}
     </div>
 </template>
 
 <script setup lang="ts">
-import { TUICI18N } from "@modules/i18n";
+import { translate } from "@content/i18n";
 import { Component } from "vue";
 
 defineProps<{

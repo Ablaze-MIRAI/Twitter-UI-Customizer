@@ -3,39 +3,38 @@
  * << Twitter を思いのままに。 >>
  */
 
-import { TUICObserver } from "@modules/observer/index";
-import { TUICI18N } from "@modules/i18n";
-import { applySystemCss, addCssElement, applyDataCss, applyCustomIcon, applyDefaultStyle } from "@content/applyCSS";
-import { isSafemode, runSafemode } from "@content/modules/settings/safemode";
+import { TUICObserver } from "@content/observer";
+import { loadI18n, translate } from "@content/i18n";
+import { applySystemCss, addCssElement, applyDataCss, applyCustomIcon, applyDefaultStyle, cleanModifiedElements } from "@content/applyCSS";
+import { isSafemode, runSafemode } from "@content/settings/ui/safemode";
 import { startTluiObserver } from "@shared/tlui/observer";
-import { initIconObserverFunction } from "@modules/observer/functions/changeIcon";
-import { titleObserverFunction } from "@modules/observer/titleObserver";
-import { updateClasses } from "./modules/htmlClass/classManager";
-import { runSettingComponentObserver } from "./modules/settings";
+import { initIconObserverFunction } from "@content/functions/changeIcon";
+import { setTitleObserver } from "@content/functions/replaceTitleX";
+import { runSettingComponentObserver } from "@content/settings/ui";
 import { placePrintPrefButton } from "./printPref";
-import { getPref, mergeDefaultPref, setPref, updatePref } from "@modules/pref";
-import { waitForElement } from "@modules/utils/controlElements";
+import { getPref, mergeDefaultPref, setPref, updatePref } from "@content/settings";
+import { waitForElement } from "@content/utils/element";
 
 (async () => {
+    // TODO: twitter.com は x.com に強制的にリダイレクトされるため、これらは使用不可能
     if (location.href === "https://twitter.com/ja/tos") {
         applyDefaultStyle();
         // NOTE: i18n データのフェッチ
-        await TUICI18N.fetch();
+        await loadI18n();
         // Pref救出
         placePrintPrefButton();
     } else if (location.href === "https://twitter.com//") {
         // NOTE: i18n データのフェッチ
-        await TUICI18N.fetch();
+        await loadI18n();
         //document.write("aaa");
-        alert(TUICI18N.get("rescuePref-detail", "ja") + "\n\n" + TUICI18N.get("rescuePref-detail", "en"));
+        alert(translate("rescuePref-detail", "ja") + "\n\n" + translate("rescuePref-detail", "en"));
         alert(localStorage.getItem("TUIC"));
         alert(localStorage.getItem("TUIC_CSS"));
-        alert(TUICI18N.get("rescuePref-complete", "ja") + "\n\n" + TUICI18N.get("rescuePref-complete", "en"));
+        alert(translate("rescuePref-complete", "ja") + "\n\n" + translate("rescuePref-complete", "en"));
     } else {
         await Promise.all([
             // NOTE: i18n データのフェッチ
-            TUICI18N.fetch(),
-
+            loadI18n(),
             // NOTE: 設定の更新
             updatePref(),
 
@@ -47,7 +46,7 @@ import { waitForElement } from "@modules/utils/controlElements";
 
         // 起動メッセージ
         console.log(
-            `%cTwitter UI Customizer${isSafemode ? " (Safe Mode)" : ""}%cby kaonasi_biwa\n\nTwitter を思いのままに。⧸ Language: ${TUICI18N.get("@JapaneseLanguageName")}`,
+            `%cTwitter UI Customizer${isSafemode ? " (Safe Mode)" : ""}%cby kaonasi_biwa\n\nTwitter を思いのままに。⧸ Language: ${translate("@JapaneseLanguageName")}`,
             `font-family: system-ui, -apple-system, sans-serif, monospace; font-size: 1.2em; font-weight: bold; text-align: center; background: ${isSafemode ? "#5a9e1b" : "#1da1f2"}; color: #ffffff; padding: 0.5em 2em; margin-top: 0.5em; margin-left: 0.5em;`,
             `font-family: system-ui, -apple-system, sans-serif, monospace; margin: 0.5em; color: ${isSafemode ? "#5a9e1b" : "#1da1f2"};`,
         );
@@ -64,7 +63,7 @@ import { waitForElement } from "@modules/utils/controlElements";
         }
 
         // 前起動時のTUICの要素・Classが残っていればすべて削除
-        updateClasses(true);
+        cleanModifiedElements();
         for (const elem of document.querySelectorAll(".TUICOriginalContent")) {
             elem.remove();
         }
@@ -87,15 +86,15 @@ import { waitForElement } from "@modules/utils/controlElements";
         }
 
         // タイトル変更のためのObserver
-        waitForElement("title").then(titleObserverFunction);
+        waitForElement("title").then(setTitleObserver);
 
         // TLUI用のObserver
         startTluiObserver();
 
         // メインのObserver
-        TUICObserver.target = document.body;
-        TUICObserver.bind();
-        TUICObserver.callback();
+        const observer = new TUICObserver(document.body);
+        observer.bind();
+        observer.callback();
         runSettingComponentObserver();
 
         // フォントサイズ変更の検出のためのObserver

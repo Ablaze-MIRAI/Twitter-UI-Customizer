@@ -4,7 +4,7 @@
             <div>
                 <component v-if="!opened" :is="icon" class="TUIC_setting_detailsbox_icon" />
                 <component v-if="opened" :is="iconOpened" class="TUIC_setting_detailsbox_icon" />
-                <span :style="opened ? `font-weight: bold` : ``">{{ TUICI18N.get(summaryI18N) }}</span>
+                <span :style="opened ? `font-weight: bold` : ``">{{ translate(summaryI18N) }}</span>
                 <ICON_REVEAL style="width: 24px; margin: auto" :style="opened ? `transform: rotate(180deg)` : ``" />
             </div>
         </summary>
@@ -15,9 +15,9 @@
 </template>
 
 <script setup lang="ts">
-import { TUICI18N } from "@modules/i18n";
+import { translate } from "@content/i18n";
 import { Component, ref } from "vue";
-import ICON_REVEAL from "@content/icons/common/reveal.svg?component";
+import ICON_REVEAL from "@shared/icons/common/reveal.svg?component";
 
 defineProps<{
     summaryI18N: string;

@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import ICON_TRANSPARENT from "@content/icons/common/transparent.svg?component";
+import ICON_TRANSPARENT from "@shared/icons/common/transparent.svg?component";
 import { ref } from "vue";
 
 defineProps<{

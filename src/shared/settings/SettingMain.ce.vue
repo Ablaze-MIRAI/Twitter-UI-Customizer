@@ -72,28 +72,28 @@
 </template>
 
 <script setup lang="ts">
-import TUICLOGO_GRAY from "@content/icons/branding/tuic_logo_gray.svg?component";
-import ICON_BRUSH from "@content/icons/common/brush.svg?component";
-import ICON_BRUSH_ENABLED from "@content/icons/common/brush_enabled.svg?component";
-import ICON_SIDEBAR from "@content/icons/common/sidebar.svg?component";
-import ICON_SIDEBAR_ENABLED from "@content/icons/common/sidebar_enabled.svg?component";
-import ICON_PENCIL from "@content/icons/common/pencil.svg?component";
-import ICON_PENCIL_ENABLED from "@content/icons/common/pencil_enabled.svg?component";
-import ICON_HOME from "@content/icons/common/home.svg?component";
-import ICON_HOME_ENABLED from "@content/icons/common/home_enabled.svg?component";
-import ICON_TWEET from "@content/icons/common/tweet.svg?component";
-import ICON_TWEET_ENABLED from "@content/icons/common/tweet_enabled.svg?component";
-import ICON_DM from "@content/icons/common/dm.svg?component";
-import ICON_DM_ENABLED from "@content/icons/common/dm_enabled.svg?component";
-import ICON_PROFILE from "@content/icons/common/profile.svg?component";
-import ICON_PROFILE_ENABLED from "@content/icons/common/profile_enabled.svg?component";
-import ICON_MORE_CIRCLE from "@content/icons/common/more_circle.svg?component";
-import ICON_MORE_CIRCLE_ENABLED from "@content/icons/common/more_circle_enabled.svg?component";
-import ICON_ARROW_RIGHT from "@content/icons/common/arrow_right.svg?component";
-import ICON_ARROW_RIGHT_ENABLED from "@content/icons/common/arrow_right_enabled.svg?component";
-import ICON_INFORMATION from "@content/icons/common/information.svg?component";
-import ICON_TWITTER from "@content/icons/common/twitter.svg?component";
-import ICON_GITHUB from "@content/icons/common/github.svg?component";
+import TUICLOGO_GRAY from "@shared/icons/branding/tuic_logo_gray.svg?component";
+import ICON_BRUSH from "@shared/icons/common/brush.svg?component";
+import ICON_BRUSH_ENABLED from "@shared/icons/common/brush_enabled.svg?component";
+import ICON_SIDEBAR from "@shared/icons/common/sidebar.svg?component";
+import ICON_SIDEBAR_ENABLED from "@shared/icons/common/sidebar_enabled.svg?component";
+import ICON_PENCIL from "@shared/icons/common/pencil.svg?component";
+import ICON_PENCIL_ENABLED from "@shared/icons/common/pencil_enabled.svg?component";
+import ICON_HOME from "@shared/icons/common/home.svg?component";
+import ICON_HOME_ENABLED from "@shared/icons/common/home_enabled.svg?component";
+import ICON_TWEET from "@shared/icons/common/tweet.svg?component";
+import ICON_TWEET_ENABLED from "@shared/icons/common/tweet_enabled.svg?component";
+import ICON_DM from "@shared/icons/common/dm.svg?component";
+import ICON_DM_ENABLED from "@shared/icons/common/dm_enabled.svg?component";
+import ICON_PROFILE from "@shared/icons/common/profile.svg?component";
+import ICON_PROFILE_ENABLED from "@shared/icons/common/profile_enabled.svg?component";
+import ICON_MORE_CIRCLE from "@shared/icons/common/more_circle.svg?component";
+import ICON_MORE_CIRCLE_ENABLED from "@shared/icons/common/more_circle_enabled.svg?component";
+import ICON_ARROW_RIGHT from "@shared/icons/common/arrow_right.svg?component";
+import ICON_ARROW_RIGHT_ENABLED from "@shared/icons/common/arrow_right_enabled.svg?component";
+import ICON_INFORMATION from "@shared/icons/common/information.svg?component";
+import ICON_TWITTER from "@shared/icons/common/twitter.svg?component";
+import ICON_GITHUB from "@shared/icons/common/github.svg?component";
 import settingsHeader from "@shared/settings/modules/SettingsHeader.vue";
 import EasySettings from "./modules/EasySettings.vue";
 import SectionTitle from "./components/SectionTitle.vue";
@@ -110,13 +110,13 @@ import SettingImportExport from "./modules/settingImportExport.vue";
 import settingLogo from "./modules/settingLogo.vue";
 import defaultPrefButton from "./components/defaultPrefButton.vue";
 import IconButton from "./components/IconButton.vue";
-import TUICLogo from "@content/icons/branding/tuic_unilogo.svg?component";
-import TUICUNILOGO_GRAY from "@content/icons/branding/tuic_unilogo_gray.svg?component";
+import TUICLogo from "@shared/icons/branding/tuic_unilogo.svg?component";
+import TUICUNILOGO_GRAY from "@shared/icons/branding/tuic_unilogo_gray.svg?component";
 import BootstrapIcons from "bootstrap-icons/font/bootstrap-icons.css?url";
-import { isSafemode } from "@content/modules/settings/safemode";
+import { isSafemode } from "@content/settings/ui/safemode";
 import { Dialog } from "@shared/tlui/components/Dialog";
 import { ButtonComponent } from "@shared/tlui/components/ButtonComponent";
-import { TUICI18N } from "@content/modules/i18n";
+import { translate } from "@content/i18n";
 
 const BootstrapIconsURL = chrome.runtime.getURL(BootstrapIcons);
 
@@ -143,17 +143,17 @@ function reloadCSS() {
 }
 
 function rescuePref() {
-    const dialog = new Dialog(TUICI18N.get("rescuePref-ButtonLabel"));
+    const dialog = new Dialog(translate("rescuePref-ButtonLabel"));
     dialog
         .addComponents([
-            ...TUICI18N.get("rescuePref-dialog").split("\r"),
+            ...translate("rescuePref-dialog").split("\r"),
             "",
             /*            new TextboxComponent("", { readonly: false, rows: 5 }),
-            new ButtonComponent(TUICI18N.get("common-copy-and-close"), () => {
+            new ButtonComponent(translate("common-copy-and-close"), () => {
                 dialog.close();
                 navigator.clipboard.writeText("");
             }),*/
-            new ButtonComponent(TUICI18N.get("common-go-and-openNewTab"), () => {
+            new ButtonComponent(translate("common-go-and-openNewTab"), () => {
                 openInNewTab("https://twitter.com/?mx=1");
                 document.querySelector("#importSection").setAttribute("open", "true");
                 document.querySelector("#importTitle").scrollIntoView({
@@ -161,7 +161,7 @@ function rescuePref() {
                 });
                 dialog.close();
             }),
-            new ButtonComponent(TUICI18N.get("common-cancel"), () => dialog.close(), { invertColor: true }),
+            new ButtonComponent(translate("common-cancel"), () => dialog.close(), { invertColor: true }),
         ])
         .open();
 }

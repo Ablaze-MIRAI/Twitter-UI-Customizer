@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import ICON_RESET from "@content/icons/common/reset.svg?component";
+import ICON_RESET from "@shared/icons/common/reset.svg?component";
 
 defineProps<{
     btnId: string;

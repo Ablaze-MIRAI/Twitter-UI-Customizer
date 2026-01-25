@@ -12,14 +12,14 @@
 </template>
 
 <script setup lang="ts">
-import ICON_HOME_TUIC from "@content/icons/home/home_tuic.svg?component";
-import ICON_HOME_TWITTER from "@content/icons/home/home_twitter.svg?component";
-import ICON_HOME_X from "@content/icons/home/home_x.svg?component";
-import ICON_COMMON_NONE from "@content/icons/common/none.svg?component";
-import ICON_BRAND_TWITTER from "@content/icons/brand/twitter.svg?component";
-import ICON_BRAND_X from "@content/icons/brand/x.svg?component";
-import ICON_X_DARUMA from "@content/icons/brand/xdaruma.svg?component";
-import { DOG as ICON_DOG } from "@content/icons/index";
+import ICON_HOME_TUIC from "@shared/icons/home/home_tuic.svg?component";
+import ICON_HOME_TWITTER from "@shared/icons/home/home_twitter.svg?component";
+import ICON_HOME_X from "@shared/icons/home/home_x.svg?component";
+import ICON_COMMON_NONE from "@shared/icons/common/none.svg?component";
+import ICON_BRAND_TWITTER from "@shared/icons/brand/twitter.svg?component";
+import ICON_BRAND_X from "@shared/icons/brand/x.svg?component";
+import ICON_X_DARUMA from "@shared/icons/brand/xdaruma.svg?component";
+import { DOG as ICON_DOG } from "@shared/icons";
 import CheckBoxList from "@shared/options/components/CheckBoxList.vue";
 import settingSubTitle from "@shared/options/components/textParts/settingSubTitle.vue";
 import settingSubtitle2 from "../components/settingSubtitle2.vue";

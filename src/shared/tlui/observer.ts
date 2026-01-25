@@ -1,4 +1,4 @@
-import { backgroundColorClass } from "@modules/utils/color";
+import { backgroundColorClass } from "@content/utils/color";
 
 /**
  * TLUI のオブザーバーを開始します。

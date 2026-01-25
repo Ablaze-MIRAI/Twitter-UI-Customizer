@@ -1,5 +1,32 @@
 export const ProcessedClass = "TUICProcessed";
 
+export const ClassList = [
+    "TUIC_NONE_SPACE_BOTTOM_TWEET",
+    "TUIC_TWEETREPLACE",
+    "TUIC_UnderTweetButton",
+    "TUICTweetButtomBarBase",
+    "TUICScrollBottom",
+    "TUICDMIcon",
+    "TUICFollowerListButtons",
+    ProcessedClass,
+];
+
+export const AttrList = [
+    "tuic-processed-article",
+    "tuic-discover-more",
+    "tuic-discover-more-tweet",
+    "tuic-tweet-top-button-parent",
+    "tuic-tweet-top-button",
+
+    "tuic-settings",
+    "tuic-event-handled",
+    "tuic-icon-type",
+    "tuic-hide",
+    "tuic-hide-child-scroll-snap",
+
+    "tuic-zooming-tweet",
+];
+
 export const ColorData = {
     defaultXColors: {
         buttonColorLight: {

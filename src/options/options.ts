@@ -1,5 +1,5 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { TUICI18N } from "@modules/i18n/index";
+import { loadI18n } from "@content/i18n";
 
 let setting = {};
 
@@ -23,7 +23,7 @@ const checkbox = (event) => {
 window.onload = () => {
     i18nApply();
     chrome.storage.sync.get("TUIC", async (settingT) => {
-        await TUICI18N.fetch();
+        await loadI18n();
         const updateUrl = chrome.runtime.getManifest().update_url;
         const isWebstore = !(typeof updateUrl === "string" ? updateUrl.includes("google.com") : undefined);
         setting = settingT.TUIC ?? {

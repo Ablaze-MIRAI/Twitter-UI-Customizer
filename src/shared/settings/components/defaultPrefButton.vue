@@ -3,26 +3,26 @@
 </template>
 
 <script setup lang="ts">
-import { TUICI18N } from "@modules/i18n";
-import { waitForElement } from "@modules/utils/controlElements";
-import { getPref, setPref, mergeDefaultPref, savePref } from "@modules/pref";
-import { isSafemode } from "@content/modules/settings/safemode";
+import { translate } from "@content/i18n";
+import { waitForElement } from "@content/utils/element";
+import { getPref, setPref, mergeDefaultPref, savePref } from "@content/settings";
+import { isSafemode } from "@content/settings/ui/safemode";
 import { Dialog } from "@shared/tlui/components/Dialog";
 import { ButtonComponent } from "@shared/tlui/components/ButtonComponent";
-import { titleObserverFunction } from "@modules/observer/titleObserver";
-import { updateClasses } from "@modules/htmlClass/classManager";
-import ICON_RESET from "@content/icons/common/reset.svg?component";
+import { setTitleObserver } from "@content/functions/replaceTitleX";
+import { cleanModifiedElements } from "@content/applyCSS";
+import ICON_RESET from "@shared/icons/common/reset.svg?component";
 import IconButton from "@shared/settings/components/IconButton.vue";
 
 const ICON = ICON_RESET;
 
 const setDefault = async () => {
     await waitForElement("#layers");
-    const dialog = new Dialog(TUICI18N.get("common-confirm"));
+    const dialog = new Dialog(translate("common-confirm"));
     dialog
         .addComponents([
-            TUICI18N.get("settingUI-restoreDefaultAll-confirm"),
-            new ButtonComponent(TUICI18N.get("common-yes"), () => {
+            translate("settingUI-restoreDefaultAll-confirm"),
+            new ButtonComponent(translate("common-yes"), () => {
                 dialog.close();
                 const defaultPref = mergeDefaultPref({});
                 setPref("", defaultPref);
@@ -32,15 +32,15 @@ const setDefault = async () => {
                     location.href = `${location.protocol}//${location.hostname}`;
                 } else {
                     document.querySelector("#TUIC_setting").remove();
-                    updateClasses();
-                    titleObserverFunction();
+                    cleanModifiedElements();
+                    setTitleObserver();
                     if (!getPref("XToTwitter.XtoTwitter") && document.title.endsWith(" / Twitter")) {
                         document.title = document.title.replace(" / Twitter", " / X");
                     }
                 }
             }),
             new ButtonComponent(
-                TUICI18N.get("common-no"),
+                translate("common-no"),
                 () => dialog.close(),
 
                 {

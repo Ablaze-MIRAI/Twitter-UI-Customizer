@@ -3,7 +3,7 @@
     <RadioButton style="gap: 15px" v-if="defaultRadioBtn.isText" id="twitterIcon.icon" :valueName="defaultRadioBtn.radioName" :name="getSettingI18n('twitterIcon.icon', 'nomal')" />
     <IconRadioButton v-if="!defaultRadioBtn.isText" id="twitterIcon.icon" :valueName="defaultRadioBtn.radioName" :name="getSettingI18n('twitterIcon.icon', 'nomal')" :icon="defaultRadioBtn.svgComponent" />
     <div style="display: flex; align-items: center; justify-content: space-between">
-        <span style="margin-left: 28px">{{ TUICI18N.get("twitterIcon-preset") }}</span>
+        <span style="margin-left: 28px">{{ translate("twitterIcon-preset") }}</span>
         <div>
             <div style="display: flex; gap: 10px">
                 <template v-for="i in presetsRadioButtonsIconAvailable" :key="i.radioName">
@@ -14,7 +14,7 @@
             <!-- アイコンが利用不可なものがあるならdetailsboxメニューに追いやる -->
             <details v-if="presetsRadioButtonsText.length !== 0">
                 <summary style=" height: fit-content; margin-top: 6px; list-style: revert;list-style-type: revert">
-                    {{ TUICI18N.get("twitterIcon-other") }}
+                    {{ translate("twitterIcon-other") }}
                 </summary>
                 <RadioButton v-for="i in presetsRadioButtonsText" :key="i.radioName" id="twitterIcon.icon" :valueName="i.radioName" :name="getSettingI18n('twitterIcon.icon', i.radioName)" />
             </details>
@@ -30,8 +30,8 @@ import { Component } from "vue";
 import RadioButton from "@shared/options/components/RadioButton.vue";
 import IconRadioButton from "@shared/options/components/IconRadioButton.vue";
 import IconRadioButtonBase64Support from "@shared/options/components/IconRadioButtonBase64Support.vue";
-import { TUICI18N } from "@modules/i18n";
-import { getSettingI18n } from "@modules/pref";
+import { translate } from "@content/i18n";
+import { getSettingI18n } from "@content/settings";
 
 export interface twIconsRadioListProps {
     radioName: "nomal" | "invisible" | "dog" | "twitter" | "twitterIcon-X" | "twitterIcon-XDaruma" | "custom";

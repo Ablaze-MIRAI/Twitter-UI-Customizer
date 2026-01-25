@@ -3,13 +3,13 @@
         <textarea id="css_textarea" class="TUIC_setting_customcss_input" v-model="customCSS" ref="CustomCSSBox"></textarea>
     </form>
     <button id="save" class="TUIC_setting_customcss_button TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" @click="changeCustomCSS()">
-        {{ TUICI18N.get("customCSS-save") }}
+        {{ translate("customCSS-save") }}
     </button>
 </template>
 
 <script setup lang="ts">
 import { applyCustomCss } from "@content/applyCSS";
-import { TUICI18N } from "@modules/i18n";
+import { translate } from "@content/i18n";
 
 const CustomCSSBox = defineModel<HTMLTextAreaElement>();
 

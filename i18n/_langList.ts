@@ -54,5 +54,3 @@ export const langList = [
     "zh-Hant",
     "zh",
 ] as const;
-
-export default langList;
