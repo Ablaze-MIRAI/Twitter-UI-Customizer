@@ -89,7 +89,7 @@ export function injectSettingsStyle() {
     const backgroundColor = backgroundColorCheck();
 
     const settingsArr = [
-        "sidebarSetting.buttonConfigsmallerSidebarContent",
+        "sidebarSetting.buttonConfig.smallerSidebarContent",
         "twitterIcon.options.roundIcon",
         "invisibleItems.subscribe-profile",
         "invisibleItems.hideBelowDM",

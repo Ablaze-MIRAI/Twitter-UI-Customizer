@@ -13,11 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: pnpm/action-setup@v6
-      - uses: actions/setup-node@v6
+      - uses: pnpm/setup@v2
         with:
-          node-version-file: package.json
-          cache: pnpm
+          cache: true
+          install: false
       - name: Archive
         run: |
           pnpm ci
@@ -39,11 +38,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: pnpm/action-setup@v6
-      - uses: actions/setup-node@v6
+      - uses: pnpm/setup@v2
         with:
-          node-version-file: package.json
-          cache: pnpm
+          cache: true
+          install: false
       - name: Archive
         run: |
           pnpm ci
@@ -59,11 +57,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: pnpm/action-setup@v6
-      - uses: actions/setup-node@v6
+      - uses: pnpm/setup@v2
         with:
-          node-version-file: package.json
-          cache: pnpm
+          cache: true
+          install: false
       - name: Archive
         run: |
           pnpm ci

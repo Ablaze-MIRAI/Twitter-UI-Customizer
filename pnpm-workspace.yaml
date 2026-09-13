@@ -4,3 +4,5 @@ allowBuilds:
   esbuild: false
   spawn-sync: false
   unrs-resolver: false
+overrides:
+  vite>lightningcss: $lightningcss

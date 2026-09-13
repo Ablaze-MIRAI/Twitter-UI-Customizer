@@ -110,7 +110,7 @@ export function replacePost() {
             localizeElemText(`[role="dialog"] [data-testid="empty_state_body_text"]`, translate("XtoTwitter-PostToTweet-unsentPageTitle"));
 
             //未送信ツイートのタブ
-            localizeElemText(`[href="/compose/tweet/unsent/drafts"][role="tab"] > div > div > span`, translate("XtoTwitter-PostToTweet-unsentPageTab1"));
+            localizeElemText(`[href="/compose/post/unsent/drafts"][role="tab"] > div > div > span`, translate("XtoTwitter-PostToTweet-unsentPageTab1"));
         }
 
         // 共有 > リンクをコピー
@@ -239,7 +239,7 @@ export function replacePost() {
         localizeElemText("#conversation-controls-details > span", translate("XtoTwitter-PostToTweet-replyRangeDetail"));
 
         // TLの「n件のツイートを表示」
-        for (const elem of getNotReplacedElements(`[data-testid="cellInnerDiv"] > div > [role="button"] > div > div > span`)) {
+        for (const elem of getNotReplacedElements(`[data-testid="cellInnerDiv"] > div > div > [role="button"] > div > div > span`)) {
             let n = 0;
             elem.textContent = translate("XtoTwitter-PostToTweet-tlShowMoreTweet").replaceAll("{count}", (match) => {
                 return n++ == 0 ? elem.textContent.match(/(\d+)/)[0] : "";

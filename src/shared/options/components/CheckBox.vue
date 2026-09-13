@@ -53,8 +53,8 @@ const changePref = (path: string, event: Event) => {
         }
     }
     &::before {
+        margin-top: 0.07rem;
         font-size: 1rem;
-        vertical-align: 0.05rem;
         color: #fff;
         opacity: 0;
     }

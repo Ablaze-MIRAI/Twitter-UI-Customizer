@@ -150,7 +150,7 @@
     text-decoration-thickness: 1px;
 }
 
-.TUICTweetTopButton :root[data-tuic-settings*="|sidebarSetting.buttonConfigsmallerSidebarContent|"] [role="navigation"] [data-tuic-hide="false"] {
+:root[data-tuic-settings*="|sidebarSetting.buttonConfig.smallerSidebarContent|"] [role="navigation"] [data-tuic-hide="false"] {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
 }

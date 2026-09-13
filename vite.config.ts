@@ -40,7 +40,7 @@ export default defineConfig(({ command, mode }) => {
             assetsInlineLimit: 0,
             reportCompressedSize: false,
 
-            rollupOptions: {
+            rolldownOptions: {
                 input: {
                     "ent-options_html": r("src/options/options.html"),
                     "ent-popup_html": r("src/popup/popup.html"),
@@ -51,20 +51,27 @@ export default defineConfig(({ command, mode }) => {
                     dynamicImportInCjs: true,
                     format: "es",
                     entryFileNames: "[name].js",
-                    manualChunks(id, meta) {
-                        if (id.includes("node_modules") && meta.getModuleInfo(id)?.isIncluded !== false) {
-                            const arr_module_name = id.split("node_modules/")[1].split("/");
-                            if (arr_module_name[0] === ".pnpm") {
-                                return arr_module_name[1];
-                            }
-                            return arr_module_name[0];
-                        }
-                        if (id.includes("i18n")) {
-                            return "i18n";
-                        }
-                        if (id.includes("?vue&type=style&")) {
-                            return "vue";
-                        }
+                    codeSplitting: {
+                        groups: [
+                            {
+                                test: /node_modules/,
+                                name(id, ctx) {
+                                    const arr_module_name = id.split("node_modules/")[1].split("/");
+                                    if (arr_module_name[0] === ".pnpm") {
+                                        return arr_module_name[1];
+                                    }
+                                    return arr_module_name[0];
+                                },
+                            },
+                            {
+                                test: /i18n/,
+                                name: "i18n",
+                            },
+                            {
+                                test: /\?vue&type=style&/,
+                                name: "vue",
+                            },
+                        ],
                     },
                     assetFileNames(assetInfo) {
                         if (assetInfo.names.some((v) => v.endsWith(".css"))) {
