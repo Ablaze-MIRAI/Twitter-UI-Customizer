@@ -7,67 +7,71 @@ import { backgroundColorClass } from "@content/utils/color";
 
 const showLinkCardInfoElement = (link: string, domain: string, title: string, description: string): () => JSX.Element => {
     return () => (
-        <div class="css-175oi2r r-16y2uox r-1wbh5a2 r-1777fci TUIC_LinkCardInfo">
+        <div class="twcss-flex grow shrink justify-center TUIC_LinkCardInfo">
             <a
                 href={link}
                 rel="noopener noreferrer nofollow"
                 target="_blank"
                 role="link"
-                class="css-4rbku5 css-18t94o4 css-175oi2r r-1loqt21 r-18u37iz r-16y2uox r-1wtj0ep r-1ny4l3l r-o7ynqc r-6416eg"
+                class="twcss-flex flex-row grow justify-between duration-200 transition-bgcolor-shadow outline-none cursor-pointer"
             >
                 <div
-                    class={`css-175oi2r r-16y2uox r-1wbh5a2 r-z5qs1h r-1777fci ${fontSizeClass(
-                        "r-1t982j2 r-1qfz7tf r-1b3ntt7",
-                        "r-1t982j2 r-1qfz7tf r-1b3ntt7",
-                        "r-kzbkwu r-1e081e0 r-ttdzmv",
-                        "r-ig955 r-1orpq53 r-19urhcx",
-                        "r-i03k3n r-779j7e r-5t7p9m",
+                    class={`twcss-flex grow shrink gap-[2px] justify-center ${fontSizeClass(
+                        "px-[11px] pt-[11px] pb-[11px]",
+                        "px-[11px] pt-[11px] pb-[11px]",
+                        "px-[12px] pt-[12px] pb-[12px]",
+                        "px-[13px] pt-[13px] pb-[13px]",
+                        "px-[14px] pt-[14px] pb-[14px]",
                     )}`}
-                    id="id__7fpkgwkoke8"
                     data-testid="card.layoutSmall.detail"
-                    style={{ padding: "12px 15px" }}
                 >
                     <div
                         dir="auto"
-                        class={`css-901oao css-1hf3ou5 ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")} r-37j5jr ${fontSizeClass(
-                            "r-1b43r93 r-14yzgew",
-                            "r-1b43r93 r-hjklzo",
-                            "r-a023e6 r-rjixqe",
-                            "r-1inkyih r-hbpseb",
-                            "r-1i10wst r-135wba7",
-                        )} r-16dba41 r-bcqeeo r-qvutc0`}
+                        class={`twcss-text-explicit max-w-full overflow-hidden text-ellipsis whitespace-nowrap min-w-[0px] text-align-inherit wrap-break-word font-tw2 ${fontSizeClass(
+                            "text-[14px] leading-[18px]",
+                            "text-[14px] leading-[19px]",
+                            "text-[15px] leading-[20px]",
+                            "text-[17px] leading-[22px]",
+                            "text-[18px] leading-[24px]",
+                        )} font-normal ${backgroundColorClass(
+                            "text-tw-dark-text2", "text-tw-darkblue-text2", "text-tw-light-text2",
+                        )}`}
                     >
-                        <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">
-                            <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">{domain}</span>
+                        <span class="twcss-text-inherit min-w-[0px] text-align-inherit wrap-break-word font-tw">
+                            <span class="twcss-text-inherit min-w-[0px] text-align-inherit wrap-break-word font-tw">{domain}</span>
                         </span>
                     </div>
                     <div
                         dir="auto"
-                        class={`css-901oao css-1hf3ou5 ${backgroundColorClass("r-1nao33i", "r-vlxjld", "r-18jsvk2")} r-37j5jr ${fontSizeClass(
-                            "r-1b43r93 r-14yzgew",
-                            "r-1b43r93 r-hjklzo",
-                            "r-a023e6 r-rjixqe",
-                            "r-1inkyih r-hbpseb",
-                            "r-1i10wst r-135wba7",
-                        )} r-16dba41 r-bcqeeo r-qvutc0`}
+                        class={`twcss-text-explicit max-w-full overflow-hidden text-ellipsis whitespace-nowrap min-w-[0px] text-align-inherit wrap-break-word font-tw2 ${fontSizeClass(
+                            "text-[14px] leading-[18px]",
+                            "text-[14px] leading-[19px]",
+                            "text-[15px] leading-[20px]",
+                            "text-[17px] leading-[22px]",
+                            "text-[18px] leading-[24px]",
+                        )} font-normal ${backgroundColorClass(
+                            "text-tw-dark-text", "text-tw-darkblue-text", "text-tw-light-text",
+                        )}`}
                     >
-                        <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">
-                            <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">{title}</span>
+                        <span class="twcss-text-inherit min-w-[0px] text-align-inherit wrap-break-word font-tw">
+                            <span class="twcss-text-inherit min-w-[0px] text-align-inherit wrap-break-word font-tw">{title}</span>
                         </span>
                     </div>
                     <div
                         dir="auto"
-                        class={`css-901oao css-cens5h ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")} r-37j5jr ${fontSizeClass(
-                            "r-1b43r93 r-14yzgew",
-                            "r-1b43r93 r-hjklzo",
-                            "r-a023e6 r-rjixqe",
-                            "r-1inkyih r-hbpseb",
-                            "r-1i10wst r-135wba7",
-                        )} r-16dba41 r-bcqeeo r-qvutc0`}
-                        style={{ "-webkit-line-clamp": "2", "white-space": "normal" }}
+                        class={`twcss-text-explicit box-orient-vertical webkit-box max-w-full overflow-hidden text-ellipsis min-w-[0px] text-align-inherit wrap-break-word font-tw2 ${fontSizeClass(
+                            "text-[14px] leading-[18px]",
+                            "text-[14px] leading-[19px]",
+                            "text-[15px] leading-[20px]",
+                            "text-[17px] leading-[22px]",
+                            "text-[18px] leading-[24px]",
+                        )} font-normal ${backgroundColorClass(
+                            "text-tw-dark-text2", "text-tw-darkblue-text2", "text-tw-light-text2",
+                        )}`}
+                        style={{ "-webkit-line-clamp": "2" }}
                     >
-                        <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">
-                            <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">{description}</span>
+                        <span class="twcss-text-inherit min-w-[0px] text-align-inherit wrap-break-word font-tw">
+                            <span class="twcss-text-inherit min-w-[0px] text-align-inherit wrap-break-word font-tw">{description}</span>
                         </span>
                     </div>
                 </div>

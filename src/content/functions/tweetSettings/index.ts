@@ -184,8 +184,16 @@ export function tweetSettings() {
                                 }
                                 // Twitterのボタンと同化させるためにClassとかごにょごにょしてる
                                 if (processingButton) {
-                                    processingButton.classList.remove("r-1rq6c10", "r-1b7u577", "r-1wron08", "r-ogg1b9", "r-uzdrn4", "r-1l8l4mf");
-                                    processingButton.classList.add(fontSizeClass("r-12zb1j4", "r-1kb76zh", "r-1kb76zh", "r-19einr3", "r-zso239"));
+                                    processingButton.classList.remove(
+                                        //"r-1rq6c10", //mr-[8px]かもしれない basis-[40px]かもしれない
+                                        //"mr-[12px]", //r-1b7u577
+                                        // ブックマークに元から付いているClass
+                                        "r-ogg1b9", //  mr-[7px]  x1
+                                        "r-1wron08", // mr-[8px]  x2,x3
+                                        "r-uzdrn4", //  mr-[9px]  x4
+                                        "r-1l8l4mf", // mr-[10px] x5
+                                    );
+                                    processingButton.classList.add(fontSizeClass("mr-[7px]", "mr-[8px]", "mr-[8px]", "mr-[9px]", "mr-[10px]"));
                                     if (
                                         underTweetButtons["reply-button"].querySelector(`[data-testid="app-text-transition-container"]`)
                                         && processingButton.querySelector(`[data-testid="app-text-transition-container"]`) == null
@@ -194,7 +202,7 @@ export function tweetSettings() {
                                             renderSolid(EmptyButtonHTML, processingButton.querySelector("svg").closest(`:is([role="button"],[role="link"]) > div`));
                                         } else {
                                             // 最後のボタンだけ特殊処理
-                                            processingButton.classList.add(fontSizeClass("r-12zb1j4", "r-1kb76zh", "r-1kb76zh", "r-19einr3", "r-zso239"));
+                                            processingButton.classList.add(fontSizeClass("mr-[7px]", "mr-[8px]", "mr-[8px]", "mr-[9px]", "mr-[10px]"));
                                         }
                                     }
                                     lastButton = processingButton;
@@ -203,7 +211,7 @@ export function tweetSettings() {
                             }
                             // 最後のボタンだけ特殊処理
                             if (lastButton) {
-                                lastButton.classList.add("r-1rq6c10", "r-1b7u577");
+                                //lastButton.classList.add("r-1rq6c10", "mr-[12px]");
                                 buttonBarBase.style.minHeight = "";
                                 buttonBarBase.style.height = "";
                             } else {

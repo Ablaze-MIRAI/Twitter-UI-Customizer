@@ -10,40 +10,78 @@ import { fontSizeClass } from "@content/utils/fontSize";
 const _data = {
     engagementsBox: (ids: string[], article: Element, isShort: boolean): () => JSX.Element => {
         return () => (
-            <div
-                class={`TUICEngagementsBox css-175oi2r r-1awozwy r-1efd50x r-5kkj8d r-18u37iz ${
-                    backgroundColorClass("r-2sztyj", "r-1kfrmmb", "r-1dgieki")
-                }`}
-            >
-                <For each={ids}>{(id) => _data.links(id, article, isShort)}</For>
+            <div class="twcss-flex">
+                <div
+                    class={`TUICEngagementsBox twcss-flex ${
+                        backgroundColorClass("border-t-tw-dark-border", "border-t-tw-darkblue-border", "border-t-tw-light-border")
+                    } border-t-solid border-t-[1px] flex-1 flex-row flex-nowrap px-[4px] ${
+                        fontSizeClass("py-[14px]", "py-[15px]", "py-[16px]", "py-[18px]", "py-[19px]")
+                    }`}
+                >
+                    <For each={ids}>{(id) => _data.links(id, article, isShort)}</For>
+                </div>
             </div>
         );
     },
     links: (id: string, article: Element, isShort: boolean): JSX.Element => {
         return (
-            <div
-                dir="ltr"
-                class={`css-901oao r-1tl8opc r-a023e6 r-16dba41 r-rjixqe r-bcqeeo r-qvutc0 ${
-                    fontSizeClass("r-1ml3abn", "r-1d7mnkm", "r-w7s2jr", "r-1la3zjv", "r-lgtrmy")
-                }`}
-                style={{ cursor: "pointer", "margin-right": "1em" }}
-                onClick={async () => {
-                    article.querySelector<HTMLInputElement>(`[data-testid="caret"]`).click();
-                    await waitForElement(`[data-testid="tweetEngagements"]`);
-                    document.querySelector<HTMLButtonElement>(`[data-testid="tweetEngagements"]`).click();
-                    await waitForElement(`[role="tab"][href$="/${id}"]`);
-                    document.querySelector<HTMLAnchorElement>(`[role="tab"][href$="/${id}"]`).click();
-                }}
-            >
-                <span
-                    class={`css-901oao css-16my406 r-1tl8opc r-1cwl3u0 r-bcqeeo r-qvutc0 ${
-                        fontSizeClass("r-1b43r93", "r-1b43r93", "r-a023e6", "r-1inkyih", "r-1i10wst")
-                    } ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")}`}
-                >
-                    <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">
-                        {translate("bottomTweetButtons-setting-placeEngagementsLink-" + id + (isShort ? "-short" : ""))}
-                    </span>
-                </span>
+            <div class="twcss-flex mr-[20px]">
+                <div class="twcss-flex">
+                    <a
+                        href={id === "quotes" ? "/retweets/with_comments" : `/${id}`}
+                        dir="auto"
+                        role="link"
+                        class={`twcss-text-explicit cursor-pointer font-tw2  ${
+                            fontSizeClass("text-[14px]", "text-[14px]", "text-[15px]", "text-[17px]", "text-[18px]")
+                        } font-normal ${
+                            fontSizeClass("leading-[18px]", "leading-[19px]", "leading-[20px]", "leading-[22px]", "leading-[24px]")
+                        } min-w-[0px] wrap-break-word ${
+                            backgroundColorClass("text-tw-dark-text", "text-tw-darkblue-text", "text-tw-light-text")
+                        }`}
+                        onClick={async (e) => {
+                            e.preventDefault();
+                            article.querySelector<HTMLInputElement>(`[data-testid="caret"]`).click();
+                            await waitForElement(`[data-testid="tweetEngagements"]`);
+                            document.querySelector<HTMLButtonElement>(`[data-testid="tweetEngagements"]`).click();
+                            await waitForElement(`[role="tab"][href$="/${id}"]`);
+                            document.querySelector<HTMLAnchorElement>(`[role="tab"][href$="/${id}"]`).click();
+                        }}
+                    >
+                        <div class="twcss-flex inline-flex overflow-hidden">
+                            <span
+                                data-testid="app-text-transition-container"
+                                style={{
+                                    "transition-property": "transform",
+                                    "transition-duration": "0.3s",
+                                    transform: "translate3d(0, 0, 0)",
+                                }}
+                            >
+                                <span
+                                    class={`twcss-text-inherit font-inherit ${
+                                        fontSizeClass("text-[13px]", "text-[13px]", "text-[14px]", "text-[15px]", "text-[17px]")
+                                    } font-bold ${
+                                        fontSizeClass("leading-[14px]", "leading-[15px]", "leading-[16px]", "leading-[18px]", "leading-[19px]")
+                                    } min-w-[0px] wrap-break-word`}
+                                >
+                                    <span class="twcss-text-inherit font-inherit min-w-[0px] wrap-break-word">
+                                        {}
+                                    </span>
+                                </span>
+                            </span>
+                        </div>
+                        <span
+                            class={`twcss-text-inherit ${
+                                backgroundColorClass("text-tw-dark-text2", "text-tw-darkblue-text2", "text-tw-light-text2")
+                            } font-inherit ${
+                                fontSizeClass("text-[14px]", "text-[14px]", "text-[15px]", "text-[17px]", "text-[18px]")
+                            } leading-[16px] min-w-[0px] wrap-break-word`}
+                        >
+                            <span class="twcss-text-inherit font-inherit min-w-[0px] wrap-break-word">
+                                {translate("bottomTweetButtons-setting-placeEngagementsLink-" + id + (isShort ? "-short" : ""))}
+                            </span>
+                        </span>
+                    </a>
+                </div>
             </div>
         );
     },
@@ -85,7 +123,7 @@ export function placeEngagementsLink(articleInfo: ArticleInfomation) {
         for (const engageList of engagementsFixList) {
             const engagementsBox = _data.engagementsBox(engageList, articleBase, shortName);
             const engagementsBoxBase = document.createElement("div");
-            engagementsBoxBase.className = "css-175oi2r TUICEngagementsBoxBase";
+            engagementsBoxBase.className = "twcss-flex TUICEngagementsBoxBase";
             hasClosest(buttonBarBase, `:scope > .TUICTweetButtomBarBase`).insertBefore(engagementsBoxBase, buttonBarBase.closest(`.TUICTweetButtomBarBase`));
             renderSolid(engagementsBox, engagementsBoxBase);
         }
