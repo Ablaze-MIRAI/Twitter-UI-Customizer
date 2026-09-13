@@ -1,4 +1,4 @@
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 import { hideElement, processElement, waitForElement } from "@content/utils/element";
 import { getPref, getSettingIDs } from "@content/settings";
 import { placeToastMessage } from "@content/utils/toastMessage";

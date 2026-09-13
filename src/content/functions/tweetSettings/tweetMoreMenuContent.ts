@@ -1,7 +1,7 @@
 import { hideElement, waitForElement } from "@content/utils/element";
 import { getPref, getSettingIDs, SettingGroupChildIds } from "@content/settings";
 import { fontSizeClass } from "@content/utils/fontSize";
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 
 const _data: {
     all: SettingGroupChildIds<"tweetDisplaySetting.tweetMoreMenuItems">[];

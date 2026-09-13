@@ -4,7 +4,7 @@
  */
 
 import { TUICObserver } from "@content/observer";
-import { loadI18n, translate } from "@content/i18n";
+import { loadI18n, translate } from "@shared/i18n";
 import { injectSettingsStyle, injectSystemIconStyle, injectSettingsIconStyle, injectSystemStyle, cleanModifiedElements, injectCustomStyle } from "@content/applyCSS";
 import { isSafemode, runSafemode } from "@content/settings/ui/safemode";
 import { startTluiObserver } from "@shared/tlui/observer";

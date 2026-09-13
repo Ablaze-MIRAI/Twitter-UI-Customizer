@@ -56,7 +56,7 @@ import RESET from "@shared/icons/common/reset.svg?component";
 
 // import { ARROW_LEFT, ARROW_UP, ARROW_DOWN, ARROW_RIGHT, RESET } from "@content/data/icons";
 
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 import { getPref, setPref, savePref, getSettingI18n, getSettingIDs, getDefaultPref, SettingFullKeys } from "@content/settings";
 
 import { cleanModifiedElements } from "@content/applyCSS";

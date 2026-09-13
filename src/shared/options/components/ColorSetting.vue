@@ -18,7 +18,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 
 import RoundedColorPicker from "@shared/settings/components/RoundedColorPicker.vue";
 import TransparentToggleButton from "@shared/settings/components/TransparentToggleButton.vue";

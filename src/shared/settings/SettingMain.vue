@@ -1,21 +1,18 @@
 <template>
     <link rel="stylesheet" :href="BootstrapIconsURL" />
-    <div id="TUICSettings" class="twcss-flex justify-between TUICOriginalContent">
-        <div class="twcss-text-explicit text-white font-tw text-[20px] font-extrabold leading-[24px] min-w-[0px] wrap-break-word">
-            <hr v-if="!isSafemode" class="TUIC_setting_divider TUIC_setting_divider_m35" />
-            <div class="TUIC_setting_toplogo_container">
-                <TUICLOGO_GRAY class="TUIC_setting_toplogo" />
-            </div>
-        </div>
+    <div id="TUICSettings" class="TUICOriginalContent">
+        <hr v-if="!isSafemode" class="TUIC_setting_divider TUIC_setting_divider_m35" />
 
-        <div class="TUIC_setting_easysetting_container">
-            <settingsHeader titleI18N="settingUI-easySetting" descI18N="settingUI-easySetting-detail" />
+        <TUICLOGO_GRAY class="TUIC_setting_logo" />
+
+        <div>
+            <GuideText titleI18N="settingUI-easySetting" descI18N="settingUI-easySetting-detail" />
             <EasySettings />
             <IconButton i18n="rescuePref-ButtonLabel" :icon="TUICLogo" @click="rescuePref" />
         </div>
-        <hr class="TUIC_setting_divider TUIC_setting_divider_nomargin" />
+        <hr class="TUIC_setting_divider" />
         <div>
-            <settingsHeader titleI18N="settingUI-everythingSetting" level="2" />
+            <GuideText titleI18N="settingUI-everythingSetting" />
             <SectionTitle titleI18N="settingSection-general" style="margin-top: 25px" />
             <detailsBox summaryI18N="settingDetailsBox-color" :icon="ICON_BRUSH" :icon-opened="ICON_BRUSH_ENABLED">
                 <settingColors />
@@ -94,9 +91,9 @@ import ICON_ARROW_RIGHT_ENABLED from "@shared/icons/common/arrow_right_enabled.s
 import ICON_INFORMATION from "@shared/icons/common/information.svg?component";
 import ICON_TWITTER from "@shared/icons/common/twitter.svg?component";
 import ICON_GITHUB from "@shared/icons/common/github.svg?component";
-import settingsHeader from "@shared/settings/modules/SettingsHeader.vue";
+import GuideText from "@shared/settings/components/GuideText.vue";
 import EasySettings from "./modules/EasySettings.vue";
-import SectionTitle from "./components/SectionTitle.vue";
+import SectionTitle from "./components/GroupHeading.vue";
 import detailsBox from "./components/detailsBox.vue";
 import settingColors from "@shared/options/modules/settingColors.vue";
 import settingSidebar from "./modules/settingSidebar.vue";
@@ -116,7 +113,7 @@ import BootstrapIcons from "bootstrap-icons/font/bootstrap-icons.css?url";
 import { isSafemode } from "@content/settings/ui/safemode";
 import { Dialog } from "@shared/tlui/components/Dialog";
 import { ButtonComponent } from "@shared/tlui/components/ButtonComponent";
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 
 const BootstrapIconsURL = chrome.runtime.getURL(BootstrapIcons);
 
@@ -174,16 +171,12 @@ function rescuePref() {
 }
 */
 
-.TUIC_setting_toplogo {
+.TUIC_setting_logo {
     width: 150px;
+    margin-inline: auto;
+    margin-block: 50px;
 }
 
-.TUIC_setting_toplogo_container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}
 #TUICSettings {
     padding: 0;
 
@@ -203,11 +196,8 @@ function rescuePref() {
     }
 }
 
-.TUIC_setting_easysetting_container {
-    margin-bottom: 35px;
-}
-
 .TUIC_setting_bottom_copyright {
+    display: block;
     margin: 35px 0;
     text-decoration-line: none;
     text-decoration-color: rgb(113 118 124) !important;

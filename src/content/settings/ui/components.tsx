@@ -1,7 +1,7 @@
 import { createEffect, createSignal } from "solid-js";
 import { getPref, savePref, setPref } from "@content/settings";
 import { waitForElement } from "@content/utils/element";
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 
 const changeCheckedDark = (bgThemeOption: HTMLElement, checked: boolean) => {
     const button = bgThemeOption.lastElementChild as HTMLInputElement;

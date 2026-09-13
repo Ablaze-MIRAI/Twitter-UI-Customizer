@@ -1,6 +1,6 @@
 import { waitForElement } from "@content/utils/element";
 import { getPref } from "@content/settings";
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 import { JSX } from "solid-js";
 import { ButtonUnderTweetSelectors, TweetUnderButtonsData } from "./_data";
 import { backgroundColorClass } from "@content/utils/color";
@@ -12,9 +12,9 @@ export const willClickRT = { data: false };
 // ツイートのボタンを作るためのデータたち
 export const tweetButtonData: Record<string, {
     svg: () => JSX.Element;
-    clickEvent: (data: ArticleInfomation) => void;
+    clickEvent: (data: ArticleInformation) => void;
     redButton?: boolean;
-    enable: (articleInfomation: ArticleInfomation) => boolean;
+    enable: (articleInfomation: ArticleInformation) => boolean;
 }> = {
     "url-copy": {
         svg: (): JSX.Element => {
@@ -27,7 +27,7 @@ export const tweetButtonData: Record<string, {
                 </g>
             );
         },
-        clickEvent: (data: ArticleInfomation) => {
+        clickEvent: (data: ArticleInformation) => {
             let tweetUrl = data.elements.statusButton.href;
 
             // NOTE: ドメインを変更
@@ -40,7 +40,7 @@ export const tweetButtonData: Record<string, {
             navigator.clipboard.writeText(tweetUrl);
             placeToastMessage(translate("bottomTweetButtons-urlCopy-layer"));
         },
-        enable: (articleInfomation: ArticleInfomation): boolean => {
+        enable: (articleInfomation: ArticleInformation): boolean => {
             return true;
         },
     },
@@ -55,7 +55,7 @@ export const tweetButtonData: Record<string, {
                 </g>
             );
         },
-        clickEvent: async (data: ArticleInfomation) => {
+        clickEvent: async (data: ArticleInformation) => {
             const article = data.elements.articleBase;
             article.querySelector<HTMLButtonElement>(`[data-testid="caret"]`).click();
             (await waitForElement<HTMLButtonElement>(`[data-testid="block"][role="menuitem"]`))[0].click();
@@ -73,7 +73,7 @@ export const tweetButtonData: Record<string, {
                 });
             }
         },
-        enable: (articleInfomation: ArticleInfomation): boolean => {
+        enable: (articleInfomation: ArticleInformation): boolean => {
             return !articleInfomation.option.isMe;
         },
     },
@@ -88,7 +88,7 @@ export const tweetButtonData: Record<string, {
                 </g>
             );
         },
-        clickEvent: async (data: ArticleInfomation) => {
+        clickEvent: async (data: ArticleInformation) => {
             const article = data.elements.articleBase;
             article.querySelector<HTMLButtonElement>(`[data-testid="caret"]`).click();
             (
@@ -99,7 +99,7 @@ export const tweetButtonData: Record<string, {
                 .closest<HTMLElement>(`[role="menuitem"]`)
                 .click();
         },
-        enable: (articleInfomation: ArticleInfomation): boolean => {
+        enable: (articleInfomation: ArticleInformation): boolean => {
             return !articleInfomation.option.isMe;
         },
     },
@@ -107,14 +107,14 @@ export const tweetButtonData: Record<string, {
         svg: (): JSX.Element => {
             return <g><path d="M14.23 2.854c.98-.977 2.56-.977 3.54 0l3.38 3.378c.97.977.97 2.559 0 3.536L9.91 21H3v-6.914L14.23 2.854zm2.12 1.414c-.19-.195-.51-.195-.7 0L5 14.914V19h4.09L19.73 8.354c.2-.196.2-.512 0-.708l-3.38-3.378zM14.75 19l-2 2H21v-2h-6.25z" class="TUIC_QuoteTweet"></path></g>;
         },
-        clickEvent: async (data: ArticleInfomation) => {
+        clickEvent: async (data: ArticleInformation) => {
             if (getPref("tweetDisplaySetting.buttonsInvisible.RTNotQuote")) {
                 willClickRT.data = true;
             }
             data.elements.buttonBarBase.querySelector<HTMLButtonElement>(ButtonUnderTweetSelectors["retweet-button"]).click();
             (await waitForElement<HTMLButtonElement>(`[role="menuitem"]:is([data-testid="unretweetConfirm"],[data-testid="retweetConfirm"])+[role="menuitem"]`))[0].click();
         },
-        enable: (articleInfomation: ArticleInfomation): boolean => {
+        enable: (articleInfomation: ArticleInformation): boolean => {
             return !articleInfomation.option.cannotRT;
         },
     },
@@ -129,7 +129,7 @@ export const tweetButtonData: Record<string, {
                 </g>
             );
         },
-        clickEvent: async (data: ArticleInfomation) => {
+        clickEvent: async (data: ArticleInformation) => {
             (await waitForElement<HTMLButtonElement>(ButtonUnderTweetSelectors["retweet-button"], data.elements.buttonBarBase))[0].click();
             (await waitForElement<HTMLButtonElement>(ButtonUnderTweetSelectors["like-button"], data.elements.buttonBarBase))[0].click();
 
@@ -138,7 +138,7 @@ export const tweetButtonData: Record<string, {
                 (await waitForElement<HTMLButtonElement>(`[role="menuitem"][data-testid="retweetConfirm"]`))[0].click();
             }
         },
-        enable: (articleInfomation: ArticleInfomation): boolean => {
+        enable: (articleInfomation: ArticleInformation): boolean => {
             return !articleInfomation.option.cannotRT;
         },
     },
@@ -153,7 +153,7 @@ export const tweetButtonData: Record<string, {
                 </g>
             );
         },
-        clickEvent: async (data: ArticleInfomation) => {
+        clickEvent: async (data: ArticleInformation) => {
             const article = data.elements.articleBase;
             article.querySelector<HTMLButtonElement>(`[data-testid="caret"]`).click();
             (
@@ -175,7 +175,7 @@ export const tweetButtonData: Record<string, {
                 });
             }
         },
-        enable: (articleInfomation: ArticleInfomation): boolean => {
+        enable: (articleInfomation: ArticleInformation): boolean => {
             return articleInfomation.option.isMe;
         },
         redButton: true,
@@ -191,7 +191,7 @@ export const tweetButtonData: Record<string, {
                 </g>
             );
         },
-        clickEvent: async (data: ArticleInfomation) => {
+        clickEvent: async (data: ArticleInformation) => {
             data.elements.buttonBarBase.querySelector<HTMLButtonElement>(ButtonUnderTweetSelectors["share-button"]).closest("button").click();
             (
                 await waitForElement<HTMLButtonElement>(
@@ -201,7 +201,7 @@ export const tweetButtonData: Record<string, {
                 .closest<HTMLElement>(`[role="menuitem"]`)
                 .click();
         },
-        enable: (articleInfomation: ArticleInfomation): boolean => {
+        enable: (articleInfomation: ArticleInformation): boolean => {
             return !(articleInfomation.option.cannotRT || articleInfomation.option.cannotShare || articleInfomation.option.isLockedAccount);
         },
     },
@@ -220,19 +220,19 @@ export const tweetButtonData: Record<string, {
                 </g>
             );
         },
-        clickEvent: async (data: ArticleInfomation) => {
+        clickEvent: async (data: ArticleInformation) => {
             data.elements.articleBase.querySelector<HTMLElement>(`[data-testid="caret"]`).click();
             await waitForElement(`[data-testid="Dropdown"]`);
             document.querySelector<HTMLElement>(`[data-testid="tweetEngagements"]`)?.click();
         },
-        enable: (articleInfomation: ArticleInfomation): boolean => {
+        enable: (articleInfomation: ArticleInformation): boolean => {
             return true;
         },
     },
 };
 
 // ツイートのボタン
-export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfomation): (() => JSX.Element) => {
+export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInformation): (() => JSX.Element) => {
     const enable = tweetButtonData[id].enable(articleInfomation);
     return (): JSX.Element => (
         <div

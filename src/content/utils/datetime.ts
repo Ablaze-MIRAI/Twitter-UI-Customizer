@@ -1,4 +1,4 @@
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 import { getPref } from "@content/settings";
 
 let TimeFormat: Intl.DateTimeFormat;

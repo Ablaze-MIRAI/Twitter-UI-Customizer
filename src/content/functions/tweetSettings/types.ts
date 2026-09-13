@@ -1,4 +1,4 @@
-interface ArticleInfomation {
+interface ArticleInformation {
     elements: {
         buttonBarBase: HTMLDivElement;
         articleBase: HTMLElement;

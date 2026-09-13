@@ -1,7 +1,7 @@
 <template>
     <!--Export-->
     <div>
-        <SectionTitle2 title-i18-n="export-settingTitle" />
+        <SectionHeading title-i18-n="export-settingTitle" />
         <p class="TUIC_setting_intro_paragraph TUIC_setting_intro_paragraph_bold">
             {{ translate("export-intro") }}
         </p>
@@ -31,7 +31,7 @@
     <hr class="TUIC_setting_divider TUIC_setting_divider_nomargin" />
     <!--Import-->
     <div>
-        <SectionTitle2 style="margin-top: 0" title-i18-n="import-settingTitle" id="importTitle" />
+        <SectionHeading style="margin-top: 0" title-i18-n="import-settingTitle" id="importTitle" />
         <p class="TUIC_setting_intro_paragraph TUIC_setting_intro_paragraph_bold">
             {{ translate("import-intro") }}
         </p>
@@ -77,7 +77,7 @@
 </template>
 
 <script setup lang="ts">
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 import { getPref, setPref, savePref, updatePref, mergePref, mergeDefaultPref, exportPref } from "@content/settings";
 import { waitForElement } from "@content/utils/element";
 import { injectSettingsStyle, cleanModifiedElements } from "@content/applyCSS";
@@ -86,7 +86,7 @@ import { ButtonComponent } from "@shared/tlui/components/ButtonComponent";
 
 import FIGURE_IMPORTAPPEND from "@shared/icons/figure/import_append.svg?component";
 import FIGURE_IMPORTREPLACE from "@shared/icons/figure/import_replace.svg?component";
-import SectionTitle2 from "../components/SectionTitle2.vue";
+import SectionHeading from "../components/SectionHeading.vue";
 import SettingSubTitle from "@shared/options/components/textParts/settingSubTitle.vue";
 import { ref } from "vue";
 import { setTitleObserver } from "@content/functions/replaceTitleX";

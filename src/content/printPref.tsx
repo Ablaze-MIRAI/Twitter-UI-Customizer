@@ -1,6 +1,6 @@
 import { JSX } from "solid-js";
 import { renderSolid } from "@content/utils/renderLifecycle";
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 import { waitForElement } from "@content/utils/element";
 
 /*

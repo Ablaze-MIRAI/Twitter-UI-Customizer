@@ -2,7 +2,7 @@ import { getPref } from "@content/settings";
 import { hideElement } from "@content/utils/element";
 import { formatTimeText, getAbsolutelyTime, isRelativeTime } from "@content/utils/datetime";
 
-export function modifyTweetsStyle(articleInfo: ArticleInfomation) {
+export function modifyTweetsStyle(articleInfo: ArticleInformation) {
     const articleBase = articleInfo.elements.articleBase;
     // 横スクロールバーを設置
     if (getPref("tweetDisplaySetting.option.bottomScroll")) articleInfo.elements.buttonBarBase.parentElement.classList.add("TUICScrollBottom");

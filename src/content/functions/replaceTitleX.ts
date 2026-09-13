@@ -1,4 +1,4 @@
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 import { getPref } from "@content/settings";
 
 const notificationsRegexp = /^(\([0-9]+\))[0-9() ]+([^0-9() ])/;

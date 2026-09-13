@@ -1,5 +1,5 @@
 import { getPref } from "@content/settings";
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 import { hasClosestSelector } from "@content/utils/element";
 
 let tweetCount = -1;

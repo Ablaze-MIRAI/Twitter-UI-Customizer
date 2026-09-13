@@ -77,7 +77,7 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
 };
 
 // リンクカードを設置
-export function showLinkCardInfo(articleInfo: ArticleInfomation) {
+export function showLinkCardInfo(articleInfo: ArticleInformation) {
     const articleBase = articleInfo.elements.articleBase;
     if (getPref("showLinkCardInfo.showLinkCardInfo")) {
         if (articleBase.querySelector(`[data-testid="card.layoutLarge.media"] a[aria-label] > div+div`)) {

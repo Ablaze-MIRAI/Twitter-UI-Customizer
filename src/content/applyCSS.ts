@@ -77,8 +77,7 @@ export function injectSettingsIconStyle() {
     if (isSafemode) return;
 
     injectStyle(CSS_ID_SETTINGS_ICON, `
-        [data-tuic-icon-type="custom"],
-        #TUICIcon_IconImg {
+        [data-tuic-icon-type="custom"] {
             background-image: url('${localStorage.getItem("TUIC_IconImg") ?? ""}');
         }
     `);

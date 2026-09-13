@@ -1,7 +1,7 @@
 import type { JSX } from "solid-js";
 import { For } from "solid-js";
 import { renderSolid } from "@content/utils/renderLifecycle";
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 import { waitForElement, hasClosest } from "@content/utils/element";
 import { getPref } from "@content/settings";
 import { backgroundColorClass } from "@content/utils/color";
@@ -49,7 +49,7 @@ const _data = {
     },
 };
 
-export function placeEngagementsLink(articleInfo: ArticleInfomation) {
+export function placeEngagementsLink(articleInfo: ArticleInformation) {
     const articleBase = articleInfo.elements.articleBase;
     const buttonBarBase = articleInfo.elements.buttonBarBase;
     for (const boxElem of Array.from(articleBase.querySelectorAll(`.TUICEngagementsBoxBase`))) {

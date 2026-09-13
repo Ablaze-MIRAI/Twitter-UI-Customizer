@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 import { waitForElement } from "@content/utils/element";
 import { getPref, setPref, savePref, getDefaultPref } from "@content/settings";
 import { isSafemode } from "@content/settings/ui/safemode";

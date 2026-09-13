@@ -28,10 +28,10 @@
 import { Component } from "vue";
 import RadioButton from "@shared/options/components/RadioButton.vue";
 import IconRadioButton from "@shared/options/components/IconRadioButton.vue";
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 import { getSettingI18n } from "@content/settings";
 
-export interface twIconsRadioListProps {
+export interface IPresetIcon {
     radioName: "nomal" | "invisible" | "dog" | "twitter" | "twitterIcon-X" | "twitterIcon-XDaruma" | "custom";
     // テキストの場合iconNameのTUICDataでI18Nから取ってくるので情報いらない
     isText: boolean;
@@ -43,7 +43,7 @@ export interface twIconsRadioListProps {
 }
 
 const props = defineProps<{
-    iconsList: twIconsRadioListProps[];
+    iconsList: IPresetIcon[];
 }>();
 // デフォルトが一番上、カスタムが一番下、プリセットが真ん中
 // なのでプリセット以外を特別扱いすることにする

@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 import { getPref, setPref, savePref } from "@content/settings";
 import { cleanModifiedElements } from "@content/applyCSS";
 

@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 import { Component, ref } from "vue";
 import ICON_REVEAL from "@shared/icons/common/reveal.svg?component";
 

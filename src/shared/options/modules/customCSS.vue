@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 import { injectCustomStyle } from "@content/applyCSS";
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 
 const CustomCSSBox = defineModel<HTMLTextAreaElement>();
 

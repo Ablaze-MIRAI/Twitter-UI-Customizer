@@ -1,5 +1,5 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { loadI18n } from "@content/i18n";
+import { loadI18n } from "@shared/i18n";
 
 let setting = {} as {
     iconClick: boolean;

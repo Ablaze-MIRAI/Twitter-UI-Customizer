@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 import ThreeColorSetting from "./ThreeColorSetting.vue";
 import { getSettingData } from "@content/settings";
 </script>

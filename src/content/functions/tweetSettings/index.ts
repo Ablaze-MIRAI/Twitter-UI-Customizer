@@ -9,7 +9,7 @@ import { ButtonUnderTweetSelectors, TweetUnderButtonsData } from "./_data";
 import { ProcessedClass } from "@shared/sharedData";
 import { fontSizeClass } from "@content/utils/fontSize";
 import { placeToastMessage } from "@content/utils/toastMessage";
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 import { modifyTweetsStyle } from "./modifyTweetsStyle";
 
 let buttonUnderTweetRunning = false;
@@ -115,7 +115,7 @@ export function tweetSettings() {
                         const statusButton = articleBase.querySelector(`[href*="/status/"] > time`)?.parentElement as HTMLAnchorElement;
 
                         // ツイートについての情報集
-                        const articleInfo: ArticleInfomation = {
+                        const articleInfo: ArticleInformation = {
                             elements: { buttonBarBase: buttonBarBase, articleBase: articleBase, statusButton: statusButton },
                             option: {
                                 isLockedAccount: !!articleBase.querySelector(`[data-testid="icon-lock"]`),

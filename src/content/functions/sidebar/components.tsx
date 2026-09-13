@@ -1,7 +1,7 @@
 import type { JSX } from "solid-js";
 import { backgroundColorCheck } from "@content/utils/color";
 import { fontSizeClass } from "@content/utils/fontSize";
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 
 interface CreateSidebarButtonOptions {
     id: string;

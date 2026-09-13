@@ -1,4 +1,4 @@
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 import { getSourceMap, NRStack, parseErrorStringCH, parseErrorStringFF } from "@shared/sourcemap";
 import { ButtonComponent } from "@shared/tlui/components/ButtonComponent";
 import { Dialog } from "@shared/tlui/components/Dialog";

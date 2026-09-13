@@ -37,7 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 
 import OptionMain from "@shared/settings/SettingMain.vue";
 </script>

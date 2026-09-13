@@ -1,13 +1,10 @@
 <template>
     <div>
-        <div>
-            <settingSubTitle i18n="twitterIcon-settingTitle" />
-            <twIconRadioList :icons-list="twitterLogosList" />
+        <IconSelector :icons-list="twitterLogosList" />
+        <IconUploader />
 
-            <settingSubtitle2 style="margin: 0; margin-top: 18px" title-i-18-n="twitterIcon-usedIcon" />
-            <UploadImageFile />
-            <CheckBoxList id="twitterIcon.options" />
-        </div>
+        <SectionHeadingSecond title-i-18-n="twitterIcon-usedIcon" />
+        <CheckBoxList id="twitterIcon.options" />
     </div>
 </template>
 
@@ -21,15 +18,14 @@ import ICON_BRAND_X from "@shared/icons/brand/x.svg?component";
 import ICON_X_DARUMA from "@shared/icons/brand/xdaruma.svg?component";
 import { DOG as ICON_DOG } from "@shared/icons";
 import CheckBoxList from "@shared/options/components/CheckBoxList.vue";
-import settingSubTitle from "@shared/options/components/textParts/settingSubTitle.vue";
-import settingSubtitle2 from "../components/settingSubtitle2.vue";
+import SectionHeadingSecond from "../components/SectionHeadingSecond.vue";
 import { Component } from "vue";
-import twIconRadioList, { twIconsRadioListProps } from "./twIconRadioList.vue";
-import UploadImageFile from "@shared/options/components/UploadImageFile.vue";
+import IconSelector, { IPresetIcon } from "./logo/IconSelector.vue";
+import IconUploader from "./logo/IconUploader.vue";
 
 const iconsList: Component[] = [ICON_HOME_X, ICON_HOME_TWITTER, ICON_HOME_TUIC];
 
-const twitterLogosList: twIconsRadioListProps[] = [
+const twitterLogosList: IPresetIcon[] = [
     {
         radioName: "nomal",
         isText: true,

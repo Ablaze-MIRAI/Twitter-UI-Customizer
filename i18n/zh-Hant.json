@@ -56,7 +56,6 @@
     "twitterIcon-twitter": "Twitter 圖示",
     "twitterIcon-custom": "自定義圖示",
     "twitterIcon-usedIcon": "取代圖示的圖片",
-    "twitterIcon-nowIcon": "目前的圖片",
     "twitterIcon-roundIcon": "將圖示圓形化（只在自定義圖示時有效）",
     "export-settingTitle": "匯出",
     "export-exportButton": "匯出設定",

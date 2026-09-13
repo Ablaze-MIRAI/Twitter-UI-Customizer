@@ -5,11 +5,21 @@
 </template>
 
 <script setup lang="ts">
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 
 defineProps<{
     i18n: string;
 }>();
 </script>
 
-<style scoped></style>
+<style scoped>
+.TUICSettingSubTitle {
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+    font-size: 15px;
+    font-weight: 700;
+    font-feature-settings: "palt";
+    color: var(--twitter-TUIC-color);
+    letter-spacing: 1px;
+}
+</style>

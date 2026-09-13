@@ -5,7 +5,7 @@ import { waitForElement } from "@content/utils/element";
 import { Dialog } from "@shared/tlui/components/Dialog";
 import { ButtonComponent } from "@shared/tlui/components/ButtonComponent";
 import { DivBoxComponent } from "@shared/tlui/components/DivBox";
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 
 export const display: SidebarButtonDefinition = () =>
     createSidebarButton({

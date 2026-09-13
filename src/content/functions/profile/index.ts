@@ -1,7 +1,7 @@
 import { getPref } from "@content/settings";
 import { followersList } from "./followersListButton";
 import { profileInitialTab } from "./initProfileTab";
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 
 export function profileModify() {
     // フォロワー一覧のボタンについての処理

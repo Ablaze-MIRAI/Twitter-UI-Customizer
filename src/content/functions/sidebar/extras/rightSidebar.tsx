@@ -1,7 +1,7 @@
 import { waitForElement } from "@content/utils/element";
 import { fontSizeClass } from "@content/utils/fontSize";
 import { backgroundColorClass } from "@content/utils/color";
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 import { JSX } from "solid-js";
 import { renderSolid } from "@content/utils/renderLifecycle";
 import { Dialog } from "@shared/tlui/components/Dialog";

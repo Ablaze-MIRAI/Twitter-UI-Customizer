@@ -102,16 +102,6 @@ div[tuicudbox] > .UpDownButtons {
     }
 }
 
-.TUICSettingSubTitle {
-    margin-top: 0 !important;
-    margin-bottom: 10px !important;
-    font-size: 15px;
-    font-weight: 700;
-    font-feature-settings: "palt";
-    color: var(--twitter-TUIC-color);
-    letter-spacing: 1px;
-}
-
 .TUICCheckBoxParent {
     &:not(:last-of-type) {
         padding-bottom: 10px;

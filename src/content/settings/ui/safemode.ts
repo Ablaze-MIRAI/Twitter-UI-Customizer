@@ -1,6 +1,6 @@
 import { renderVue } from "@content/utils/renderLifecycle";
 import safemodeVue from "./SafeMode.vue";
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 import vueStyleUrl from "virtual:vue.css?url";
 
 // https://stackoverflow.com/questions/42800035/why-cant-you-create-custom-elements-in-content-scripts

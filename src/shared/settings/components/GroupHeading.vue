@@ -1,11 +1,11 @@
 <template>
-    <h3 class="TUIC_setting_section_title_2">
+    <h2 class="TUIC_setting_group_heading">
         {{ translate(titleI18N) }}
-    </h3>
+    </h2>
 </template>
 
 <script setup lang="ts">
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 
 defineProps<{
     titleI18N: string;
@@ -13,11 +13,11 @@ defineProps<{
 </script>
 
 <style scoped>
-.TUIC_setting_section_title_2 {
-    padding: 0;
+.TUIC_setting_group_heading {
+    padding: 0 35px 10px;
     margin: 0;
     font-size: 20px;
     font-weight: 700;
-    color: var(--twitter-TUIC-color);
+    color: rgb(113 118 124);
 }
 </style>

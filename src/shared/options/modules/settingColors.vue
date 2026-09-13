@@ -34,7 +34,7 @@
 </template>
 
 <script setup lang="ts">
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 import { isSafemode } from "@content/settings/ui/safemode";
 
 import ColorsList from "../components/ColorsList.vue";
