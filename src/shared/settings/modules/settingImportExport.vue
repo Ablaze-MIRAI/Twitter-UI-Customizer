@@ -78,7 +78,7 @@
 
 <script setup lang="ts">
 import { translate } from "@content/i18n";
-import { getPref, setPref, savePref, updatePref, mergePref, mergeDefaultPref, exportPref } from "@content/settings";
+import { getPref, setPref, savePref, mergePref, mergeDefaultPref, exportPref } from "@content/settings";
 import { waitForElement } from "@content/utils/element";
 import { injectSettingsStyle, cleanModifiedElements } from "@content/applyCSS";
 import { Dialog } from "@shared/tlui/components/Dialog";
@@ -122,7 +122,7 @@ const importFunc = async (type: number) => {
             localStorage.setItem("TUIC_CSS", importedPref.CustomCSS);
             delete importedPref.CustomCSS;
         }
-        await updatePref(importedPref);
+        await migratePref(importedPref);
         if (type == 1) {
             setPref("", mergePref(getPref(""), importedPref));
         } else if (type == 2) {

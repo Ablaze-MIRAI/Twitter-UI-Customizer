@@ -12,7 +12,7 @@ import { changeLoadingLogo } from "@content/functions/changeIcon";
 import { setTitleObserver } from "@content/functions/replaceTitleX";
 import { runSettingComponentObserver } from "@content/settings/ui";
 import { placePrintPrefButton } from "./printPref";
-import { getPref, mergeDefaultPref, setPref, updatePref } from "@content/settings";
+import { getPref, mergeDefaultPref, setPref, migratePref } from "@content/settings";
 import { waitForElement } from "@content/utils/element";
 
 (async () => {
@@ -36,7 +36,7 @@ import { waitForElement } from "@content/utils/element";
             // NOTE: i18n データのフェッチ
             loadI18n(),
             // NOTE: 設定の更新
-            updatePref(),
+            migratePref(),
 
             // NOTE: Twitter のレンダリングを待機
             waitForElement("#react-root"),
