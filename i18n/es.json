@@ -5,5 +5,21 @@
     "settingUI-easySetting-detail": "¡Te preparamos unos ajustes sugeridos!",
     "settingUI-everythingSetting": "¡Vamos a personalizarlo a tu gusto!",
     "settingUI-restoreDefaultAll": "Restaurar valores predeterminados",
-    "settingUI-restoreDefaultAll-confirm": "¿Seguro que deseas devolver la configuración a su estado original?"
+    "settingUI-restoreDefaultAll-confirm": "¿Seguro que deseas devolver la configuración a su estado original?",
+    "settingUI-upDownList-toLeft": "Mostrar",
+    "settingUI-upDownList-toRight": "Ocultar",
+    "settingUI-upDownList-toUp": "Subir",
+    "settingUI-upDownList-toDown": "Bajar",
+    "settingUI-upDownList-restoreDefault": "Restablecer",
+    "settingUI-upDownList-visible": "Mostrar",
+    "settingUI-upDownList-invisible": "Ocultar",
+    "settingUI-colorPicker-restoreDefault": "Restablecer valores predeterminados",
+    "settingSection-page": "Página",
+    "settingSection-other": "Otros",
+    "settingSection-extentionInfo": "Información de extensión",
+    "settingDetailsBox-color": "Color",
+    "timeline-discoverMore-invisible": "Ocultar",
+    "twitterIcon-invisible": "Ocultar",
+    "twitterIcon-other": "Otros",
+    "common-hide": "Ocultar"
 }
