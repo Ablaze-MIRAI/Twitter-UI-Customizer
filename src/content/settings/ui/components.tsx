@@ -2,6 +2,7 @@ import { createEffect, createSignal } from "solid-js";
 import { getPref, savePref, setPref } from "@content/settings";
 import { waitForElement } from "@content/utils/element";
 import { translate } from "@content/i18n";
+import { fontSizeClass } from "@content/utils/fontSize";
 
 const changeCheckedDark = (bgThemeOption: HTMLElement, checked: boolean) => {
     const button = bgThemeOption.lastElementChild as HTMLInputElement;
@@ -115,16 +116,22 @@ export const dimBackgroundThemeButton = (bgThemeOption: HTMLElement) => () => {
     return (
         <div
             tabIndex="-1"
-            class="css-g5y9jx r-1awozwy r-z2wwpe r-1loqt21 r-13awgt0 r-18u37iz r-1064s9p r-adacv r-u9wvl5 r-1ny4l3l TUIC_setting_backgroundTheme_dim"
+            class="twcss-flex items-center rounded-[4px] cursor-pointer flex-1 flex-row m-[4px] min-h-[64px] px-[20px] outline-none TUIC_setting_backgroundTheme_dim"
             style={{
                 "background-color": "rgb(21, 32, 43)",
                 "border-color": bgTheme() === "blue" ? "rgb(29, 155, 240)" : "transparent",
                 "border-width": bgTheme() === "blue" ? "2px" : "1px",
             }}
         >
-            <div role="radio" tabindex="-1" class="css-g5y9jx r-1awozwy r-sdzlij r-eu3ka r-1777fci r-wxmri3 r-lrvibr r-1aockid r-o7ynqc r-6416eg r-1ny4l3l">
+            <div
+                role="radio"
+                tabindex="-1"
+                class="twcss-flex items-center rounded-full h-[40px] justify-center mx-[-11px] select-none w-[40px] duration-200 transition-bgcolor-shadow outline-none"
+            >
                 <div
-                    class="css-g5y9jx r-1awozwy r-nsiyw1 r-1phboty r-d045u9 r-z80fyv r-1777fci r-19wmn03"
+                    class={`twcss-flex items-center ${fontSizeClass(
+                        "rounded-[29px]", "rounded-[30px]", "rounded-[32px]", "rounded-[35px]", "rounded-[38px]",
+                    )} border-solid border-2 h-[20px] justify-center w-[20px]`}
                     style={{
                         "background-color": bgTheme() === "blue" ? "rgb(29, 155, 240)" : "rgba(0, 0, 0, 0)",
                         "border-color": bgTheme() === "blue" ? "rgb(29, 155, 240)" : "rgb(92, 110, 126)",
@@ -133,7 +140,7 @@ export const dimBackgroundThemeButton = (bgThemeOption: HTMLElement) => () => {
                     <svg
                         viewBox="0 0 24 24"
                         aria-hidden="true"
-                        class="r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-jwli3a r-1hjwoze r-12ym1je"
+                        class="inline-block fill-current max-w-full relative select-none align-text-bottom text-white h-[18px] w-[18px]"
                         data-tuic-hide={bgTheme() === "blue" ? undefined : "true"}
                     >
                         <g>
@@ -142,20 +149,26 @@ export const dimBackgroundThemeButton = (bgThemeOption: HTMLElement) => () => {
                     </svg>
                 </div>
             </div>
-            <div aria-hidden="true" class="css-g5y9jx r-1awozwy r-1loqt21 r-16y2uox r-1777fci r-wizibn r-6e0ovw">
+            <div aria-hidden="true" class="twcss-flex items-center cursor-pointer grow justify-center ml-[5px] w-[80%]">
                 <div
                     dir="ltr"
-                    class="css-146c3p1 r-dnmrzs r-1udh08x r-1udbk01 r-3s2u2q r-bcqeeo r-1ttztb7 r-qvutc0 r-1tl8opc r-a023e6 r-rjixqe r-b88u0q"
+                    class={`twcss-text-explicit max-w-full overflow-hidden text-ellipsis whitespace-nowrap min-w-[0px] text-align-inherit wrap-break-word font-tw ${fontSizeClass(
+                        "text-[14px] leading-[18px]",
+                        "text-[14px] leading-[19px]",
+                        "text-[15px] leading-[20px]",
+                        "text-[17px] leading-[22px]",
+                        "text-[18px] leading-[24px]",
+                    )} font-bold`}
                     style={{ color: "rgb(231, 233, 234)" }}
                 >
-                    <span class="css-1jxf684 r-bcqeeo r-1ttztb7 r-qvutc0 r-1tl8opc">{translate("backgroundTheme-dim")}</span>
+                    <span class="twcss-text-inherit min-w-[0px] text-align-inherit wrap-break-word font-tw">{translate("backgroundTheme-dim")}</span>
                 </div>
             </div>
             <input
                 name="background-picker"
                 type="radio"
                 aria-label={translate("backgroundTheme-dim")}
-                class="r-1p0dtai r-1ei5mc7 r-1pi2tsx r-1d2f490 r-crgep1 r-orgf3d r-t60dpp r-u8s1d r-zchlnj r-ipm5af r-13qz1uu"
+                class="bottom-[0px] cursor-inherit h-full left-[0px] m-[0px] opacity-[0] p-[0px] absolute right-[0px] top-[0px] w-full"
                 attr:checked={bgTheme() === "blue" ? "" : undefined}
                 onClick={onClick.bind(null, "blue")}
             />

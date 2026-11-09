@@ -15,12 +15,12 @@ const elem = (): JSX.Element => {
             id="TUICDisplayRightSidebar"
             dir="ltr"
             role="link"
-            class={`TUICOriginalContent css-1rynq56 r-bcqeeo r-qvutc0 r-1tl8opc r-16dba41 r-hrzydr r-1loqt21 ${fontSizeClass(
-                "r-1enofrn r-1f529hi r-mszm1p",
-                "r-1enofrn r-fxxt2n r-mszm1p",
-                "r-n6v787 r-1cwl3u0 r-j2kj52",
-                "r-1b43r93 r-14yzgew r-1ba89he",
-                "r-ubezar r-hjklzo r-n3sdqm",
+            class={`TUICOriginalContent twcss-text-explicit min-w-[0px] wrap-break-word font-tw font-normal my-[2px] cursor-pointer ${fontSizeClass(
+                "text-[12px] leading-[14px] pr-[11px]",
+                "text-[12px] leading-[15px] pr-[11px]",
+                "text-[13px] leading-[16px] pr-[12px]",
+                "text-[14px] leading-[18px] pr-[13px]",
+                "text-[16px] leading-[19px] pr-[14px]",
             )}`}
             style={{
                 "text-overflow": "unset",
@@ -57,7 +57,7 @@ const elem = (): JSX.Element => {
                 }, 150);*/
             }}
         >
-            <span class="css-1qaijid r-bcqeeo r-qvutc0 r-1tl8opc" style={{ "text-overflow": "unset" }}>
+            <span class="twcss-text-inherit min-w-[0px] wrap-break-word font-tw" style={{ "text-overflow": "unset" }}>
                 {translate("common-displaySetting")}
             </span>
         </a>

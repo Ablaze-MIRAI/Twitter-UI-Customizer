@@ -13,7 +13,7 @@ export const display: SidebarButtonDefinition = () =>
         svg: () => (
             <>
                 <path d={SIDEBAR_BUTTON_ICON.display.unselected}></path>
-                <path d="M14 12c0-1.1-.9-2-2-2-1.11 0-2 .9-2 2v2h2c1.1 0 2-.9 2-2z" class="r-1cvl2hr"></path>
+                <path d="M14 12c0-1.1-.9-2-2-2-1.11 0-2 .9-2 2v2h2c1.1 0 2-.9 2-2z" class="text-tw-accent-blue"></path>
             </>
         ),
         url: "/i/display",

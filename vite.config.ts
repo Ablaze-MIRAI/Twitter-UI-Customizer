@@ -10,6 +10,7 @@ import vue from "@vitejs/plugin-vue";
 import { browserslistToTargets, composeVisitors } from "lightningcss";
 import { lightningcssPluginUnoCSS, vitePluginUnoCSS } from "./scripts/vite-plugin/unocss.ts";
 import solidPlugin from "vite-plugin-solid";
+import { solidBabelOption } from "./scripts/vite-plugin/babel-plugin-solid-class.ts";
 //
 
 import { changeManifest } from "./scripts/change-manifest.ts";
@@ -152,7 +153,9 @@ export default defineConfig(({ command, mode }) => {
             },
             vitePluginWebExt(import.meta.dirname, r("dist"), r("dist"), mode === "chromiumCRX" ? "disable-web-ext" : mode),
             vitePluginUnoCSS(),
-            solidPlugin(),
+            solidPlugin({
+                babel: solidBabelOption,
+            }),
             // Vue Plugins
             vue({
                 features: {

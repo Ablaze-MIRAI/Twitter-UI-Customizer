@@ -11,8 +11,8 @@ const _data = {
     engagementsBox: (ids: string[], article: Element, isShort: boolean): () => JSX.Element => {
         return () => (
             <div
-                class={`TUICEngagementsBox css-175oi2r r-1awozwy r-1efd50x r-5kkj8d r-18u37iz ${
-                    backgroundColorClass("r-2sztyj", "r-1kfrmmb", "r-1dgieki")
+                class={`TUICEngagementsBox twcss-flex items-center border-t-solid border-t-[1px] flex-row ${
+                    backgroundColorClass("border-t-tw-dark-border", "border-t-tw-darkblue-border", "border-t-tw-light-border")
                 }`}
             >
                 <For each={ids}>{(id) => _data.links(id, article, isShort)}</For>
@@ -23,8 +23,8 @@ const _data = {
         return (
             <div
                 dir="ltr"
-                class={`css-901oao r-1tl8opc r-a023e6 r-16dba41 r-rjixqe r-bcqeeo r-qvutc0 ${
-                    fontSizeClass("r-1ml3abn", "r-1d7mnkm", "r-w7s2jr", "r-1la3zjv", "r-lgtrmy")
+                class={`css-901oao font-tw text-[15px] font-normal leading-[20px] min-w-[0px] wrap-break-word ${
+                    fontSizeClass("py-[14px]", "py-[15px]", "py-[16px]", "py-[18px]", "py-[19px]")
                 }`}
                 style={{ cursor: "pointer", "margin-right": "1em" }}
                 onClick={async () => {
@@ -36,11 +36,11 @@ const _data = {
                 }}
             >
                 <span
-                    class={`css-901oao css-16my406 r-1tl8opc r-1cwl3u0 r-bcqeeo r-qvutc0 ${
-                        fontSizeClass("r-1b43r93", "r-1b43r93", "r-a023e6", "r-1inkyih", "r-1i10wst")
-                    } ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")}`}
+                    class={`css-901oao css-16my406 font-tw leading-[16px] min-w-[0px] wrap-break-word ${
+                        fontSizeClass("text-[14px]", "text-[14px]", "text-[15px]", "text-[17px]", "text-[18px]")
+                    } ${backgroundColorClass("text-tw-dark-text2", "text-tw-darkblue-text2", "text-tw-light-text2")}`}
                 >
-                    <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">
+                    <span class="css-901oao css-16my406 font-tw min-w-[0px] wrap-break-word">
                         {translate("bottomTweetButtons-setting-placeEngagementsLink-" + id + (isShort ? "-short" : ""))}
                     </span>
                 </span>
@@ -85,7 +85,7 @@ export function placeEngagementsLink(articleInfo: ArticleInfomation) {
         for (const engageList of engagementsFixList) {
             const engagementsBox = _data.engagementsBox(engageList, articleBase, shortName);
             const engagementsBoxBase = document.createElement("div");
-            engagementsBoxBase.className = "css-175oi2r TUICEngagementsBoxBase";
+            engagementsBoxBase.className = "twcss-flex TUICEngagementsBoxBase";
             hasClosest(buttonBarBase, `:scope > .TUICTweetButtomBarBase`).insertBefore(engagementsBoxBase, buttonBarBase.closest(`.TUICTweetButtomBarBase`));
             renderSolid(engagementsBox, engagementsBoxBase);
         }

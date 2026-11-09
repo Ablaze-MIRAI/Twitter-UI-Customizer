@@ -191,6 +191,9 @@ importers:
       '@stylistic/stylelint-config':
         specifier: ^5.0.0
         version: 5.0.0(stylelint@17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2))
+      '@types/babel__core':
+        specifier: ^7.20.5
+        version: 7.20.5
       '@types/chrome':
         specifier: ^0.2.6
         version: 0.2.6
