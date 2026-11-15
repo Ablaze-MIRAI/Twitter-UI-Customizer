@@ -185,6 +185,8 @@
     "composetweet-toolbar-settingTitle": "调整推文底部按钮排序",
     "composetweet-settingTitle": "发推界面的显示设置",
     "composetweet-hideDraft": "隐藏草稿按钮",
+    "composetweet-remainOpened": "发布后自动打开发推页",
+    "composetweet-copyHashtag": "发推文时自动复制主题标签",
     "dmPage-setting-dm": "私信",
     "dmPage-settingTitle": "私信设置",
     "dmPage-showIcon": "一对一私信显示对方头像",
