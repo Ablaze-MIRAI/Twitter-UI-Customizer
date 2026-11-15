@@ -180,6 +180,8 @@
     "uncategorizedSettings-disableBackdropFilter": "禁用模糊等背景效果",
     "settingPerformance-settingTitle": "性能",
     "performanceSettings-removeDeletedTweets": "清楚已删除推文的残留痕迹",
+    "dateAndTime.dateAboveTweet.normal": "维持常用的写法",
+    "dateAndTime.dateAboveTweet.absolutely": "显示日期和时间",
     "composetweet-toolbar-settingTitle": "调整推文底部按钮排序",
     "composetweet-settingTitle": "发推界面的显示设置",
     "composetweet-hideDraft": "隐藏草稿按钮",
